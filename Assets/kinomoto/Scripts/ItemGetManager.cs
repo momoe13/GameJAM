@@ -4,23 +4,37 @@ using UnityEngine;
 
 public class ItemGetManager : MonoBehaviour
 {
-    [SerializeField] private GameObject ScoreMgr;
+    [SerializeField] private GameObject scoreMgr;
+    [SerializeField] private GameObject crane;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //スターを入れた時の処理
         if (collision.gameObject.tag == "Star")
         {
-            ScoreMgr.GetComponent<ScoreManager>().score += 10;
+            Destroy(collision.gameObject);//オブジェクトを削除
+            scoreMgr.GetComponent<ScoreManager>().score += 10;//スコアを10点加算
         }
-        if (collision.gameObject.tag == "PowerUp")
+        //基礎パワーアップアイテムを入れたときの処理
+        if (collision.gameObject.tag == "BasePowerUp")
         {
-            Destroy(collision.gameObject);
-            ScoreMgr.GetComponent<ScoreManager>().score += 100;
-            Debug.Log("パワーアップ！");
+            crane.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
+            Destroy(collision.gameObject);//オブジェクトを削除
+            scoreMgr.GetComponent<ScoreManager>().score += 100;//スコアを100点加算
+            Debug.Log("基礎値パワーアップ！");
         }
+        //倍率パワーアップを入れたときの処理
+        if(collision.gameObject.tag == "RatePowerUp")
+        {
+            crane.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
+            Destroy(collision.gameObject);//オブジェクトを削除
+            scoreMgr.GetComponent<ScoreManager>().score += 100;//スコアを100点加算
+            Debug.Log("倍率パワーアップ！");
+        }
+        //目標アイテムを取得した際の処理
         if (collision.gameObject.tag == "Target")
         {
-            Destroy(collision.gameObject);
-            ScoreMgr.GetComponent<ScoreManager>().score += 1000;
+            Destroy(collision.gameObject);//オブジェクトを削除
+            scoreMgr.GetComponent<ScoreManager>().score += 1000;//スコアを1000点加算
             Debug.Log("目標のアイテムをゲット！");
         }
     }

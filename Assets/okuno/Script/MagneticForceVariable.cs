@@ -49,6 +49,13 @@ public class MagneticForceVariable : MonoBehaviour
         }        
     }
 
+    /// <summary>
+    /// クレーンの磁力を完全にオフにする（オンにする場合Reflection()を呼び出す）
+    /// </summary>
+    public void MagneticOff()
+    {
+        gameObject.GetComponent<PointEffector2D>().forceMagnitude = 0;
+    }
 
     /// <summary>
     /// クレーンの磁力関係の値を初期化
@@ -63,7 +70,7 @@ public class MagneticForceVariable : MonoBehaviour
     }
 
     /// <summary>
-    /// クレーンに磁力の値を反映させるメソッド
+    /// クレーンに磁力の値を反映させるメソッド(磁力を戻したい場合もこれを呼び出す）
     /// </summary>
     public void Reflection()
     {

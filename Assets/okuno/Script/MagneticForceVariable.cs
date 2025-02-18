@@ -30,10 +30,8 @@ public class MagneticForceVariable : MonoBehaviour
 
     void Start()
     {
-        // 最初に基礎値と倍率を初期値に設定し、反映させる
-        magnificationValue = initialMagnification;
-        baseValue = initialBase;
-        Reflection();
+        // 初期化
+        AllValueReset();
     }
 
     void Update()
@@ -50,6 +48,19 @@ public class MagneticForceVariable : MonoBehaviour
         }        
     }
 
+
+    /// <summary>
+    /// クレーンの磁力関係の値を初期化
+    /// </summary>
+    public void AllValueReset()
+    {
+        magnificationValue = initialMagnification;
+        baseValue = initialBase;
+        pushCount = 0;
+        // クレーンに反映
+        Reflection();
+    }
+
     /// <summary>
     /// クレーンに磁力の値を反映させるメソッド
     /// </summary>
@@ -62,7 +73,7 @@ public class MagneticForceVariable : MonoBehaviour
     }
 
     /// <summary>
-    /// 連打回数をリセット
+    /// 連打回数のみリセット
     /// </summary>
     public void ResetPushCount()
     {
@@ -75,7 +86,7 @@ public class MagneticForceVariable : MonoBehaviour
     public void AddMagnification()
     {
         magnificationValue += addMagnificationValue;
-        // 反映させる
+        // クレーンに反映
         Reflection();
     }
 
@@ -86,7 +97,7 @@ public class MagneticForceVariable : MonoBehaviour
     public void AddBase()
     {
         baseValue += addBaseValue;
-        // 反映させる
+        // クレーンに反映
         Reflection();
     }
 }

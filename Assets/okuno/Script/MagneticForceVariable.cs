@@ -33,6 +33,7 @@ public class MagneticForceVariable : MonoBehaviour
                 // スペースを押したらカウントを加算
                 pushCount++;
                 Reflection();
+                Debug.Log("押した");
             }
         }        
     }

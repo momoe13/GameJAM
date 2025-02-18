@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
-  - PowerUp
   - Star
+  - BasePowerUp
+  - RatePowerUp
   layers:
   - Default
   - TransparentFX

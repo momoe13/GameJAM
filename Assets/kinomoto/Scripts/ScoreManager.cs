@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public GameObject scoreObject = null;
-    public int score = 0;//スコア変数
 
     private void Start()
     {
@@ -17,6 +16,6 @@ public class ScoreManager : MonoBehaviour
         Text scoreText = scoreObject.GetComponent<Text>();
 
         //テキストの表示入替
-        scoreText.text = "スコア:" + score.ToString();
+        scoreText.text = "スコア:" + ScoreKeep.score.ToString();
     }
 }

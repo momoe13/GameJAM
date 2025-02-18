@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MagneticForceVariable : MonoBehaviour
 {
-    [SerializeField] private GameObject crane;
     //スペースを押すとカウントを増やす処理をしてもいいかどうか
     public bool isSpace;
     [Header("連打回数")]
@@ -49,7 +48,7 @@ public class MagneticForceVariable : MonoBehaviour
     public void Reflection()
     {
         resultValue = baseValue + ((magnification * pushCount) * baseValue);
-        crane.GetComponent<PointEffector2D>().forceMagnitude = resultValue;
+        gameObject.GetComponent<PointEffector2D>().forceMagnitude = resultValue;
     }
 
     public void AddMagnification()

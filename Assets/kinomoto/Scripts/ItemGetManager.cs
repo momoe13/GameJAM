@@ -31,6 +31,20 @@ public class ItemGetManager : MonoBehaviour
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("倍率パワーアップ！");
         }
+        //横幅パワーアップを入れたときの処理
+        if(collision.gameObject.tag == "WidthPowerUp")
+        {
+            Destroy(collision.gameObject);//オブジェクトを削除
+            ScoreKeep.score += 100;//スコアを100点加算
+            Debug.Log("横幅パワーアップ！");
+        }
+        //ターン回復数アップを入れたときの処理
+        if (collision.gameObject.tag == "TurnRecoveryUp")
+        {
+            Destroy(collision.gameObject);//オブジェクトを削除
+            ScoreKeep.score += 100;//スコアを100点加算
+            Debug.Log("ターン回復数アップ！");
+        }
         //目標アイテムを取得した際の処理
         if (collision.gameObject.tag == "Target")
         {

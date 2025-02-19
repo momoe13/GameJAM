@@ -32,8 +32,6 @@ public class TurnManager : MonoBehaviour
     public void TurnCountDown()
     {
         turnCount--;
-
-        Debug.Log("ターン減少");
     }
     /// <summary>
     /// ターン数のカウント上昇

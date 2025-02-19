@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CreaneMove1 : MonoBehaviour
+public class CraneMove1 : MonoBehaviour
 {
 
     [SerializeField]//Space‚ð‰Ÿ‚µ‚½”»’è

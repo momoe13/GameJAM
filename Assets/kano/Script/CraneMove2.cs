@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CreaneMove2 : MonoBehaviour
+public class CraneMove2 : MonoBehaviour
 {
 
     [SerializeField]//Space‚ð‰Ÿ‚µ‚½”»’è
@@ -79,9 +79,7 @@ public class CreaneMove2 : MonoBehaviour
                 ArmCommand6();
                 break;
             case State.RELEASE:
-                Debug.Log("‰ð•ú");
-                magneticForceVariable.MagneticOff();
-                state = State.RESET;
+                ArmCommand7();
                 break;
 
             case State.RESET:
@@ -172,6 +170,7 @@ public class CreaneMove2 : MonoBehaviour
     }
     void ArmCommand7()
     {
+        magneticForceVariable.MagneticOff();
         wait -= Time.deltaTime ;
         if (0 > wait)
         {

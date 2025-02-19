@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TestItemGetManager : MonoBehaviour
+public class TestGetManager : MonoBehaviour
 {
     [SerializeField] private GameObject crane;
     [SerializeField] private GameObject TargetManager;
+    [SerializeField] private GameObject audioManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //スターを入れた時の処理
@@ -18,6 +17,7 @@ public class TestItemGetManager : MonoBehaviour
         //基礎パワーアップアイテムを入れたときの処理
         if (collision.gameObject.tag == "BasePowerUp")
         {
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             crane.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
@@ -26,6 +26,7 @@ public class TestItemGetManager : MonoBehaviour
         //倍率パワーアップを入れたときの処理
         if (collision.gameObject.tag == "RatePowerUp")
         {
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             crane.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
@@ -34,6 +35,7 @@ public class TestItemGetManager : MonoBehaviour
         //横幅パワーアップを入れたときの処理
         if(collision.gameObject.tag == "WidthPowerUp")
         {
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("横幅パワーアップ！");
@@ -41,6 +43,7 @@ public class TestItemGetManager : MonoBehaviour
         //ターン回復数アップを入れたときの処理
         if (collision.gameObject.tag == "TurnRecoveryUp")
         {
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("ターン回復数アップ！");

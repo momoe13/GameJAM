@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class GameSceneAudioManager : MonoBehaviour
 {
+    [Header("通常のSE用")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip upSound;
+    [Header("パワーアップのSE用")]
+    [SerializeField] private AudioSource powerUpAudioSource;
+
+    [Header("効果音クリップ")]
+    //下降SE
     [SerializeField] private AudioClip downSound;
+    //上昇SE
+    [SerializeField] private AudioClip upSound;
 
     public void ArmUpSound()
     {
@@ -17,6 +24,11 @@ public class GameSceneAudioManager : MonoBehaviour
         audioSource.Stop();
         audioSource.clip = downSound;
         audioSource.Play();
+    }
+
+    public void PowerUpSound()
+    {
+        powerUpAudioSource.Play();
     }
 
     public void SoundStop()

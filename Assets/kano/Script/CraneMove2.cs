@@ -3,10 +3,6 @@ using UnityEngine;
 public class CraneMove2 : MonoBehaviour
 {
 
-    [SerializeField]//Space‚ð‰Ÿ‚µ‚½”»’è
-    private bool isPush = false;
-
-    Rigidbody2D rb2d;
 
     [SerializeField]
     Vector3[] armSpeed = new Vector3[(int)State.ENUM_END];
@@ -33,13 +29,10 @@ public class CraneMove2 : MonoBehaviour
     }
     private State state;
 
-    int num = 0;
     float wait = 0.0f;
 
     private void Start()
     {
-        GetComponent<Rigidbody2D>();
-
         state = State.PUSH;
 
     }

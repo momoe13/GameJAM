@@ -116,7 +116,7 @@ public class CreaneMove2 : MonoBehaviour
                 Debug.Log("‚È‚ñ‚à‚µ‚Ä‚È‚¢‚Ì‚É‚±‚í‚ê‚½");
                 break;
         }
-       // Debug.Log(state.ToString());
+        Debug.Log(state.ToString());
     }
 
     void ArmCommand1()
@@ -173,6 +173,7 @@ public class CreaneMove2 : MonoBehaviour
 
     void ArmCommand5()
     {
+        Debug.Log("aaa");
         transform.position += armSpeed[(int)State.UP];
         if(transform.position.y >= 3)
         {

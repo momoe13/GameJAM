@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemGetManager : MonoBehaviour
 {
     [SerializeField] private GameObject crane;
-
+    [SerializeField] private GameObject TargetManager;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //スターを入れた時の処理
@@ -36,7 +36,15 @@ public class ItemGetManager : MonoBehaviour
         {
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 1000;//スコアを1000点加算
-            Debug.Log("目標のアイテムをゲット！");
+
+            if (TargetManager.GetComponent<TargetManager>().TargetNumber == int.Parse(collision.gameObject.name))
+            {
+                Debug.Log("目標のアイテムをゲット！");
+            }
+            else
+            {
+                Debug.Log("ターゲットアイテムをゲット！");
+            }
         }
     }
 }

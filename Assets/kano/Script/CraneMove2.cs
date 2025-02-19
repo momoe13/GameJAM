@@ -1,20 +1,21 @@
+using System.Collections;
 using UnityEngine;
 
-public class CreaneMove2 : MonoBehaviour
+public class CraneMove2 : MonoBehaviour
 {
-
-    [SerializeField]//Spaceを押した判定
-    private bool isPush = false;
-
-    Rigidbody2D rb2d;
-
     [SerializeField]
     Vector3[] armSpeed = new Vector3[(int)State.ENUM_END];
 
     [SerializeField] private MagneticForceVariable magneticForceVariable;
 
     [SerializeField]
+    TurnManager turnManager;
+
+    [SerializeField]
     bool IsHit = false;
+
+    [SerializeField]
+    private GameObject AudioManager;
 
     private enum State{ 
      PUSH,       //プレイヤーが押すターン
@@ -23,20 +24,18 @@ public class CreaneMove2 : MonoBehaviour
      WAIT,       //アーム停止
      UP,         //アーム引き上げ
      LEFT,       //横移動
-     RELEASE,  //解放　
+     RELEASE,    //解放　
      RESET,      //全値初期化
      
      ENUM_END
     }
     private State state;
 
-    int num = 0;
+    float seWait = 0.0f;
     float wait = 0.0f;
 
     private void Start()
     {
-        GetComponent<Rigidbody2D>();
-
         state = State.PUSH;
 
     }
@@ -76,16 +75,14 @@ public class CreaneMove2 : MonoBehaviour
                 ArmCommand6();
                 break;
             case State.RELEASE:
-                magneticForceVariable.MagneticOff();
-                state = State.PUSH;
-                Debug.Log("解放");
+                ArmCommand7();
                 break;
 
             case State.RESET:
                 magneticForceVariable.ResetPushCount();
                 magneticForceVariable.Reflection();
-
-                Debug.Log("1ターン終了");
+                turnManager.TurnCountDown();
+                state = State.PUSH;
                 break;
 
             default:
@@ -126,6 +123,8 @@ public class CreaneMove2 : MonoBehaviour
         {
             IsHit = false;
             wait = 5.0f;
+            // 降りる効果音再生
+            AudioManager.GetComponent<GameSceneAudioManager>().ArmDownSound();
             state++;
         }
     }
@@ -135,6 +134,8 @@ public class CreaneMove2 : MonoBehaviour
         transform.position += armSpeed[(int)State.DOWN];
         if(IsHit)
         {
+            // 1秒後に降下SE停止
+            StartCoroutine(StopSoundAfterHit(1.5f));
             state++;
             wait = 3.0f;
         }
@@ -145,6 +146,8 @@ public class CreaneMove2 : MonoBehaviour
         wait -= Time.deltaTime;
         if(0 > wait)
         {
+            // 上昇SE再生
+            AudioManager.GetComponent<GameSceneAudioManager>().ArmUpSound();
             state++;
         }
     }
@@ -154,6 +157,8 @@ public class CreaneMove2 : MonoBehaviour
         transform.position += armSpeed[(int)State.UP];
         if(transform.position.y >= 3)
         {
+            // 上昇SE停止
+            AudioManager.GetComponent<GameSceneAudioManager>().SoundStop();
             state++;
         }
     }
@@ -169,6 +174,7 @@ public class CreaneMove2 : MonoBehaviour
     }
     void ArmCommand7()
     {
+        magneticForceVariable.MagneticOff();
         wait -= Time.deltaTime ;
         if (0 > wait)
         {
@@ -178,5 +184,11 @@ public class CreaneMove2 : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IsHit = true;
+    }
+
+    private IEnumerator StopSoundAfterHit(float waitSeconds)
+    {
+        yield return new WaitForSeconds(waitSeconds);
+        AudioManager.GetComponent<GameSceneAudioManager>().SoundStop();
     }
 }

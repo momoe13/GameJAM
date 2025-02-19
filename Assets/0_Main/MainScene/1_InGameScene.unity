@@ -2270,7 +2270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3514e2587d5944980eb45420c69bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPush: 0
   armSpeed:
   - {x: 0.01, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}

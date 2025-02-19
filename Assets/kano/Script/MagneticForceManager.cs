@@ -36,6 +36,7 @@ public class MagneticForceManager : MonoBehaviour
 
     public void GetKey()
     {
+        Debug.Log("aa");
         pushCount++;
         Reflection();
     }

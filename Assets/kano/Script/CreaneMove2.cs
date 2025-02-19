@@ -26,7 +26,7 @@ public class CreaneMove2 : MonoBehaviour
      DOWN,       //アームを下げる
      WAIT,       //アーム停止
      UP,         //アーム引き上げ
-     HORIZONTAL, //横移動
+     LEFT, //横移動
 
      ENUM_END
     }
@@ -108,7 +108,7 @@ public class CreaneMove2 : MonoBehaviour
                 ArmCommand5();
                 break;
 
-            case State.HORIZONTAL:
+            case State.LEFT:
                 ArmCommand6();
                 break;
 
@@ -116,7 +116,7 @@ public class CreaneMove2 : MonoBehaviour
                 Debug.Log("なんもしてないのにこわれた");
                 break;
         }
-        Debug.Log(state.ToString());
+       // Debug.Log(state.ToString());
     }
 
     void ArmCommand1()
@@ -128,7 +128,7 @@ public class CreaneMove2 : MonoBehaviour
         }
         else if(100 <= transform.position.x || Input.GetKeyUp(KeyCode.Space))
         {
-            wait = 2.0f;
+            wait = 4.0f;
             state++;
         }
     }
@@ -155,7 +155,7 @@ public class CreaneMove2 : MonoBehaviour
     void ArmCommand3()
     {
         transform.position += armSpeed[(int)State.DOWN];
-        if(transform.position.y < 0)
+        if(transform.position.y < -2.0f)
         {
             state++;
             wait = 3.0f;
@@ -183,8 +183,8 @@ public class CreaneMove2 : MonoBehaviour
     
     void ArmCommand6()
     {
-        transform.position += armSpeed[(int)State.HORIZONTAL];
-        if(transform.position.x <= 30)
+        transform.position += armSpeed[(int)State.LEFT];
+        if(transform.position.x <= -6)
         {
             time = 0;
             state = 0;

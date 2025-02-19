@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f5aba7a06af71046ba4dcc2dd57864a
+guid: 6d1629501406ba34290c5c0bc208bd0e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -115,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 2
         y: 3
-        width: 140
+        width: 138
         height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 870b3dc10e491644a96a95fbc419b8bf
-      internalID: 1692963414
+      spriteID: 3098eca7cb33e674f8370b7fca488e68
+      internalID: 42119356
       vertices: []
       indices: 
       edges: []
@@ -134,10 +134,10 @@ TextureImporter:
       name: Prize_L_1
       rect:
         serializedVersion: 2
-        x: 147
-        y: 2
-        width: 337
-        height: 197
+        x: 141
+        y: 66
+        width: 224
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8312fd9a1925b664a80ed51105668b01
-      internalID: 2143541347
+      spriteID: 6d068b28742509846a451f2557073eda
+      internalID: 1149771378
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Prize_L_0: 1692963414
-      Prize_L_1: 2143541347
+      Prize_L_0: 42119356
+      Prize_L_1: 1149771378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

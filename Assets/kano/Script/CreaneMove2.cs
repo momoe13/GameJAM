@@ -13,6 +13,8 @@ public class CreaneMove2 : MonoBehaviour
 
     [SerializeField] private MagneticForceVariable magneticForceVariable;
 
+    TurnManager turnManager;
+
     [SerializeField]
     bool IsHit = false;
 
@@ -23,7 +25,7 @@ public class CreaneMove2 : MonoBehaviour
      WAIT,       //アーム停止
      UP,         //アーム引き上げ
      LEFT,       //横移動
-     RELEASE,  //解放　
+     RELEASE,    //解放　
      RESET,      //全値初期化
      
      ENUM_END
@@ -36,6 +38,7 @@ public class CreaneMove2 : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody2D>();
+        GetComponent<TurnManager>();
 
         state = State.PUSH;
 
@@ -85,6 +88,7 @@ public class CreaneMove2 : MonoBehaviour
                 magneticForceVariable.ResetPushCount();
                 magneticForceVariable.Reflection();
 
+                turnManager.TurnCountDown();
                 Debug.Log("1ターン終了");
                 break;
 

@@ -49,6 +49,7 @@ public class MagneticForceVariable : MonoBehaviour
             {
                 pushCount++;
                 Reflection();
+                Debug.Log("押した");
             }
             /*-----------------テスト用コマンド-----------------*/
             // 磁力範囲拡大

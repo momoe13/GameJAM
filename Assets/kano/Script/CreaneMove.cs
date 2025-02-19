@@ -32,7 +32,7 @@ public class CreaneMove : MonoBehaviour
         time += Time.deltaTime;
         
         ARMMove();
-        Debug.Log(time);
+        //Debug.Log(time);
 
         if (time > 2 ) {
             if (num > 3) { return; }

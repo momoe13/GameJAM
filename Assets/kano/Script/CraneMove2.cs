@@ -1,9 +1,8 @@
+using System.Collections;
 using UnityEngine;
 
 public class CraneMove2 : MonoBehaviour
 {
-
-
     [SerializeField]
     Vector3[] armSpeed = new Vector3[(int)State.ENUM_END];
 
@@ -14,6 +13,9 @@ public class CraneMove2 : MonoBehaviour
 
     [SerializeField]
     bool IsHit = false;
+
+    [SerializeField]
+    private GameObject AudioManager;
 
     private enum State{ 
      PUSH,       //ÉvÉåÉCÉÑÅ[Ç™âüÇ∑É^Å[Éì
@@ -29,6 +31,7 @@ public class CraneMove2 : MonoBehaviour
     }
     private State state;
 
+    float seWait = 0.0f;
     float wait = 0.0f;
 
     private void Start()
@@ -120,6 +123,8 @@ public class CraneMove2 : MonoBehaviour
         {
             IsHit = false;
             wait = 5.0f;
+            // ç~ÇËÇÈå¯â âπçƒê∂
+            AudioManager.GetComponent<GameSceneAudioManager>().ArmDownSound();
             state++;
         }
     }
@@ -129,6 +134,8 @@ public class CraneMove2 : MonoBehaviour
         transform.position += armSpeed[(int)State.DOWN];
         if(IsHit)
         {
+            // 1ïbå„Ç…ç~â∫SEí‚é~
+            StartCoroutine(StopSoundAfterHit(1.5f));
             state++;
             wait = 3.0f;
         }
@@ -139,6 +146,8 @@ public class CraneMove2 : MonoBehaviour
         wait -= Time.deltaTime;
         if(0 > wait)
         {
+            // è„è∏SEçƒê∂
+            AudioManager.GetComponent<GameSceneAudioManager>().ArmUpSound();
             state++;
         }
     }
@@ -148,6 +157,8 @@ public class CraneMove2 : MonoBehaviour
         transform.position += armSpeed[(int)State.UP];
         if(transform.position.y >= 3)
         {
+            // è„è∏SEí‚é~
+            AudioManager.GetComponent<GameSceneAudioManager>().SoundStop();
             state++;
         }
     }
@@ -173,5 +184,11 @@ public class CraneMove2 : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IsHit = true;
+    }
+
+    private IEnumerator StopSoundAfterHit(float waitSeconds)
+    {
+        yield return new WaitForSeconds(waitSeconds);
+        AudioManager.GetComponent<GameSceneAudioManager>().SoundStop();
     }
 }

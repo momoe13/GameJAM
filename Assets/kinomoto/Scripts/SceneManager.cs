@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager
+public static class SceneManager
 {
-    public void TitleLordScene()
+    public static void TitleLordScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScene");
     }
 
-    public void GameLordScene()
+    public static void GameLordScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 
-    public void GameOverLordScene()
+    public static void GameOverLordScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
     }

@@ -10,7 +10,7 @@ public class MagneticForceManager : MonoBehaviour
 
     [Header("つかみ力倍率")]
     // 初期値
-    [SerializeField] private float initialMagnification = 0.01f;
+    [SerializeField] private float initialMagnification;
     // 現在の倍率
     [SerializeField] private float magnificationValue;
     // 加算する倍率値
@@ -18,7 +18,7 @@ public class MagneticForceManager : MonoBehaviour
 
     [Header("基礎値")]
     // 初期値
-    [SerializeField] private float initialBase = -100f;
+    [SerializeField] private float initialBase;
     // 現在の基礎値
     [SerializeField] private float baseValue;
     // 加算する基礎値
@@ -28,17 +28,57 @@ public class MagneticForceManager : MonoBehaviour
     // 反映させるときの最終値
     [SerializeField] private float resultValue;
 
+    // 範囲拡大時の値
+    [SerializeField] private Vector2[] upPointAry;
+    // 磁力範囲の初期値
+    [SerializeField] private Vector2[] initialPointAry;
+
     void Start()
     {
         // 初期化
         AllValueReset();
     }
 
+    //void Update()
+    //{
+    //    // isSpaceがtrueの間のみ、連打回数加算を許可する
+    //    if (isSpace)
+    //    {
+            
+    //        /*-----------------テスト用コマンド-----------------*/
+    //        // 磁力範囲拡大
+    //        if (Input.GetKeyDown(KeyCode.U))
+    //        {
+    //            ColliderSizeUp();
+    //        }
+    //        // 磁力範囲縮小
+    //        if (Input.GetKeyDown(KeyCode.R))
+    //        {
+    //            ColliderSizeReset();
+    //        }
+    //    }
+    //}
+
     public void GetKey()
     {
-        Debug.Log("aa");
+        // スペースを押したらカウントを加算
         pushCount++;
         Reflection();
+    }
+    /// <summary>
+    /// 磁力の効果範囲の拡大
+    /// </summary>
+    public void ColliderSizeUp()
+    {
+        gameObject.GetComponent<PolygonCollider2D>().SetPath(0, upPointAry);
+    }
+
+    /// <summary>
+    /// 磁力の効果範囲の縮小
+    /// </summary>
+    public void ColliderSizeReset()
+    {
+        gameObject.GetComponent<PolygonCollider2D>().SetPath(0, initialPointAry);
     }
 
     /// <summary>

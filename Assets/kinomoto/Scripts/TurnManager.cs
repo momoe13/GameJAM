@@ -17,7 +17,7 @@ public class TurnManager : MonoBehaviour
     private void Update()
     {
         Text turnText = turnObject.GetComponent<Text>();
-        turnText.text = "残りターン数：" + turnCount.ToString();//残りターン数を表示
+        turnText.text = turnCount.ToString();//残りターン数を表示
 
        // Debug.Log(turnCount);
         if (turnCount <= 0)

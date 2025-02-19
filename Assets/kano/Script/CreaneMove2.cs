@@ -13,6 +13,7 @@ public class CreaneMove2 : MonoBehaviour
 
     [SerializeField] private MagneticForceVariable magneticForceVariable;
 
+    [SerializeField]
     TurnManager turnManager;
 
     [SerializeField]
@@ -38,7 +39,6 @@ public class CreaneMove2 : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody2D>();
-        GetComponent<TurnManager>();
 
         state = State.PUSH;
 
@@ -79,17 +79,16 @@ public class CreaneMove2 : MonoBehaviour
                 ArmCommand6();
                 break;
             case State.RELEASE:
-                magneticForceVariable.MagneticOff();
-                state = State.PUSH;
                 Debug.Log("âï˙");
+                magneticForceVariable.MagneticOff();
+                state = State.RESET;
                 break;
 
             case State.RESET:
                 magneticForceVariable.ResetPushCount();
                 magneticForceVariable.Reflection();
-
                 turnManager.TurnCountDown();
-                Debug.Log("1É^Å[ÉìèIóπ");
+                state = State.PUSH;
                 break;
 
             default:

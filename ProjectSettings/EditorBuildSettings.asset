@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/kinomoto/kinomotoScene.unity
+    guid: 5545b7c2aad050a4f94119b3781cd596
+  - enabled: 1
+    path: Assets/kinomoto/resultScene.unity
+    guid: e16da70b778ae10498e4f631f56b0e26
   m_configObjects: {}

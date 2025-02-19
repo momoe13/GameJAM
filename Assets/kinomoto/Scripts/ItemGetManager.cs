@@ -6,7 +6,8 @@ using UnityEngine;
 public class ItemGetManager : MonoBehaviour
 {
     [SerializeField] private GameObject crane;
-    [SerializeField] private GameObject TargetManager;
+    [SerializeField] private GameObject targetManager;
+    [SerializeField] private GameObject turnManager;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //スターを入れた時の処理
@@ -34,16 +35,19 @@ public class ItemGetManager : MonoBehaviour
         //横幅パワーアップを入れたときの処理
         if(collision.gameObject.tag == "WidthPowerUp")
         {
+            //クレーンのビーム部分の横幅を増加
+            crane.GetComponent<MagneticForceVariable>().ColliderSizeUp();
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("横幅パワーアップ！");
         }
-        //ターン回復数アップを入れたときの処理
+        //ターン数+1を入れたときの処理
         if (collision.gameObject.tag == "TurnRecoveryUp")
         {
+            turnManager.GetComponent<TurnManager>().TurnCountUp();//ターン+1
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
-            Debug.Log("ターン回復数アップ！");
+            Debug.Log("ターン数+1！");
         }
         //目標アイテムを取得した際の処理
         if (collision.gameObject.tag == "Target")
@@ -51,7 +55,7 @@ public class ItemGetManager : MonoBehaviour
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 1000;//スコアを1000点加算
 
-            if (TargetManager.GetComponent<TargetManager>().TargetNumber == int.Parse(collision.gameObject.name))
+            if (targetManager.GetComponent<TargetManager>().TargetNumber == int.Parse(collision.gameObject.name))
             {
                 Debug.Log("目標のアイテムをゲット！");
             }

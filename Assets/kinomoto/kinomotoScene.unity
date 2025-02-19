@@ -881,7 +881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crane: {fileID: 751045045}
-  TargetManager: {fileID: 2032191159}
+  targetManager: {fileID: 2032191159}
+  turnManager: {fileID: 1717506638}
 --- !u!61 &1023575498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1828,7 +1829,7 @@ GameObject:
   - component: {fileID: 1824757645}
   m_Layer: 0
   m_Name: ItemTurnRecoveryUp
-  m_TagString: WidthPowerUp
+  m_TagString: TurnRecoveryUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1956,7 +1957,7 @@ Transform:
   m_GameObject: {fileID: 1824757644}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.46, y: 1.143279, z: 0}
+  m_LocalPosition: {x: 6.6, y: 1.143279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

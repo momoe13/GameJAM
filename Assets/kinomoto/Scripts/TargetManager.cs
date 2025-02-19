@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> targetSelect;//クリア目標のアイテムのリスト
+    [SerializeField] 
+    public List<GameObject> targetSelect;//クリア目標のアイテムのリスト
     public int TargetNumber;
 
     private void Update()

@@ -5,12 +5,12 @@ public static class SceneManager
 {
     public static void TitleLordScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("0_TitleScene");
     }
 
     public static void GameLordScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("1_InGameScene");
     }
 
     public static void GameOverLordScene()

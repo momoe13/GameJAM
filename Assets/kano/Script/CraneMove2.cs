@@ -15,7 +15,7 @@ public class CraneMove2 : MonoBehaviour
     bool IsHit = false;
 
     [SerializeField]
-    private GameObject AudioManager;
+    private GameObject audioManager;
 
     private enum State{ 
      PUSH,       //プレイヤーが押すターン
@@ -31,7 +31,6 @@ public class CraneMove2 : MonoBehaviour
     }
     private State state;
 
-    float seWait = 0.0f;
     float wait = 0.0f;
 
     private void Start()
@@ -124,7 +123,7 @@ public class CraneMove2 : MonoBehaviour
             IsHit = false;
             wait = 5.0f;
             // 降りる効果音再生
-            AudioManager.GetComponent<GameSceneAudioManager>().ArmDownSound();
+            audioManager.GetComponent<GameSceneAudioManager>().ArmDownSound();
             state++;
         }
     }
@@ -147,7 +146,7 @@ public class CraneMove2 : MonoBehaviour
         if(0 > wait)
         {
             // 上昇SE再生
-            AudioManager.GetComponent<GameSceneAudioManager>().ArmUpSound();
+            audioManager.GetComponent<GameSceneAudioManager>().ArmUpSound();
             state++;
         }
     }
@@ -158,7 +157,7 @@ public class CraneMove2 : MonoBehaviour
         if(transform.position.y >= 3)
         {
             // 上昇SE停止
-            AudioManager.GetComponent<GameSceneAudioManager>().SoundStop();
+            audioManager.GetComponent<GameSceneAudioManager>().SoundStop();
             state++;
         }
     }
@@ -189,6 +188,6 @@ public class CraneMove2 : MonoBehaviour
     private IEnumerator StopSoundAfterHit(float waitSeconds)
     {
         yield return new WaitForSeconds(waitSeconds);
-        AudioManager.GetComponent<GameSceneAudioManager>().SoundStop();
+        audioManager.GetComponent<GameSceneAudioManager>().SoundStop();
     }
 }

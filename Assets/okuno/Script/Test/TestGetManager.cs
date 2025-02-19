@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TestItemGetManager : MonoBehaviour
+public class TestGetManager : MonoBehaviour
 {
-    [SerializeField] private GameObject cranePowerErea;
-    [SerializeField] private GameObject targetManager;
-    [SerializeField] private GameObject turnManager;
+    [SerializeField] private GameObject crane;
+    [SerializeField] private GameObject TargetManager;
+    [SerializeField] private GameObject audioManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //スターを入れた時の処理
@@ -15,52 +13,48 @@ public class TestItemGetManager : MonoBehaviour
         {
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 10;//スコアを10点加算
-            ScoreKeep.sterScore += 1;
         }
         //基礎パワーアップアイテムを入れたときの処理
         if (collision.gameObject.tag == "BasePowerUp")
         {
-            cranePowerErea.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            crane.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
-            ScoreKeep.basePowerUpScore += 1;
             Debug.Log("基礎値パワーアップ！");
         }
         //倍率パワーアップを入れたときの処理
         if (collision.gameObject.tag == "RatePowerUp")
         {
-            cranePowerErea.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            crane.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
-            ScoreKeep.ratePowerUpScore += 1;
             Debug.Log("倍率パワーアップ！");
         }
         //横幅パワーアップを入れたときの処理
         if(collision.gameObject.tag == "WidthPowerUp")
         {
-            //クレーンのビーム部分の横幅を増加
-            cranePowerErea.GetComponent<MagneticForceVariable>().ColliderSizeUp();
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
-            ScoreKeep.widthPowerUpScore += 1;
             Debug.Log("横幅パワーアップ！");
         }
-        //ターン数+1を入れたときの処理
+        //ターン回復数アップを入れたときの処理
         if (collision.gameObject.tag == "TurnRecoveryUp")
         {
-            turnManager.GetComponent<TurnManager>().TurnCountUp();//ターン+1
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
-            ScoreKeep.turnRecoveryUpScore += 1;
-            Debug.Log("ターン数+1！");
+            Debug.Log("ターン回復数アップ！");
         }
         //目標アイテムを取得した際の処理
         if (collision.gameObject.tag == "Target")
         {
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 1000;//スコアを1000点加算
-            ScoreKeep.prizeScore += 1;
-            if (targetManager.GetComponent<TargetManager>().TargetNumber == int.Parse(collision.gameObject.name))
+
+            if (TargetManager.GetComponent<TargetManager>().TargetNumber == int.Parse(collision.gameObject.name))
             {
                 Debug.Log("目標のアイテムをゲット！");
             }

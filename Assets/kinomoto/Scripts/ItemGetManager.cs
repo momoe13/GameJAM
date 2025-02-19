@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemGetManager : MonoBehaviour
 {
-    [SerializeField] private GameObject crane;
+    [SerializeField] private GameObject cranePowerErea;
     [SerializeField] private GameObject targetManager;
     [SerializeField] private GameObject turnManager;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +19,7 @@ public class ItemGetManager : MonoBehaviour
         //基礎パワーアップアイテムを入れたときの処理
         if (collision.gameObject.tag == "BasePowerUp")
         {
-            crane.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
+            cranePowerErea.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("基礎値パワーアップ！");
@@ -27,7 +27,7 @@ public class ItemGetManager : MonoBehaviour
         //倍率パワーアップを入れたときの処理
         if (collision.gameObject.tag == "RatePowerUp")
         {
-            crane.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
+            cranePowerErea.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("倍率パワーアップ！");
@@ -36,7 +36,7 @@ public class ItemGetManager : MonoBehaviour
         if(collision.gameObject.tag == "WidthPowerUp")
         {
             //クレーンのビーム部分の横幅を増加
-            crane.GetComponent<MagneticForceVariable>().ColliderSizeUp();
+            cranePowerErea.GetComponent<MagneticForceVariable>().ColliderSizeUp();
             Destroy(collision.gameObject);//オブジェクトを削除
             ScoreKeep.score += 100;//スコアを100点加算
             Debug.Log("横幅パワーアップ！");

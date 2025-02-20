@@ -14,7 +14,7 @@ public class GeneratingManager : MonoBehaviour
         for (int i = 0; i < target.PushItem.Length; i++)
         {
             Instantiate(target.PushItem[i], this.transform.position, Quaternion.identity);
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < 4; j++)
             {
                 Instantiate(star[i], this.transform.position, Quaternion.identity);
             }

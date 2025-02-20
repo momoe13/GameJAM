@@ -5,14 +5,15 @@ public class ItmGet : MonoBehaviour
     [SerializeField] private GameObject crane;
     [SerializeField] private TargetItem TargetItem;
     [SerializeField] private GameObject audioManager;
+    [SerializeField] private GameObject itemGetParticle;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //獲得時のパーティクル生成
+        Instantiate(itemGetParticle,collision.gameObject.transform.position,Quaternion.identity);
         //スターを入れた時の処理
         if (collision.gameObject.tag == "Star")
         {
-            //Destroy(collision.gameObject);//オブジェクトを削除
-            //ScoreKeep.score += 10;//スコアを10点加算
             AddScoreOnDestroy(collision, 10);//スコアを10点加算
         }
         //基礎パワーアップアイテムを入れたときの処理
@@ -20,8 +21,6 @@ public class ItmGet : MonoBehaviour
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             crane.GetComponent<MagneticForceVariable>().AddBase();//クレーンの基礎パワーを増加
-            //Destroy(collision.gameObject);//オブジェクトを削除
-            //ScoreKeep.score += 100;//スコアを100点加算
             AddScoreOnDestroy(collision, 100);
             Debug.Log("基礎値パワーアップ！");
         }
@@ -30,16 +29,12 @@ public class ItmGet : MonoBehaviour
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             crane.GetComponent<MagneticForceVariable>().AddMagnification();//クレーンの倍率パワーを増加
-            //Destroy(collision.gameObject);//オブジェクトを削除
-            //ScoreKeep.score += 100;//スコアを100点加算
             AddScoreOnDestroy(collision, 100);
             Debug.Log("倍率パワーアップ！");
         }
         //横幅パワーアップを入れたときの処理
         if (collision.gameObject.tag == "WidthPowerUp")
         {
-            //Destroy(collision.gameObject);//オブジェクトを削除
-            //ScoreKeep.score += 100;//スコアを100点加算
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             AddScoreOnDestroy(collision, 100);
             Debug.Log("横幅パワーアップ！");
@@ -47,8 +42,6 @@ public class ItmGet : MonoBehaviour
         //ターン回復数アップを入れたときの処理
         if (collision.gameObject.tag == "TurnRecoveryUp")
         {
-            //Destroy(collision.gameObject);//オブジェクトを削除
-            //ScoreKeep.score += 100;//スコアを100点加算
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             AddScoreOnDestroy(collision, 100);
             Debug.Log("ターン回復数アップ！");
@@ -56,10 +49,6 @@ public class ItmGet : MonoBehaviour
         //目標アイテムを取得した際の処理
         if (collision.gameObject.tag == "Target")
         {
-            //Destroy(collision.gameObject);//オブジェクトを削除
-
-            //    Debug.Log("削除！");
-            //ScoreKeep.score += 1000;//スコアを1000点加算
             AddScoreOnDestroy(collision, 1000);
             Debug.Log("削除！");
 
@@ -77,6 +66,6 @@ public class ItmGet : MonoBehaviour
     private void AddScoreOnDestroy(Collider2D collision,int addScore)
     {
         Destroy(collision.gameObject);
-        ScoreKeep.score += addScore;//スコアを100点加算
+        ScoreKeep.score += addScore;//スコアを加算
     }
 }

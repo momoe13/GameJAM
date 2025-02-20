@@ -18,6 +18,7 @@ public class MainGameSceneFade : MonoBehaviour
 
     private void Update()
     {
+        // デバッグ用
         if (Input.GetKeyDown(KeyCode.T))
         {
             FadeOut();
@@ -26,6 +27,7 @@ public class MainGameSceneFade : MonoBehaviour
 
     public void FadeIn()
     {
+        fadeImage.SetActive(true);
         fadeOutParticle.SetActive(true);
         StartCoroutine(CanvasOnAfterWait());
     }
@@ -48,7 +50,7 @@ public class MainGameSceneFade : MonoBehaviour
         fadeImage.SetActive(false);
         if (isGameScene)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             uiCanvas.SetActive(true);
         }
     }
@@ -66,7 +68,7 @@ public class MainGameSceneFade : MonoBehaviour
 
     private IEnumerator ScoreUiOff()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         uiCanvas.SetActive(false);
     }
 

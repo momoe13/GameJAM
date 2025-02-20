@@ -25,6 +25,8 @@ public class TurnManager : MonoBehaviour
             //SceneManager.LoadScene("");
             //ゲームを終了
         }
+
+        
     }
     /// <summary>
     /// ターン数のカウント減少
@@ -33,6 +35,8 @@ public class TurnManager : MonoBehaviour
     {
         turnCount--;
     }
+
+
     /// <summary>
     /// ターン数のカウント上昇
     /// </summary>

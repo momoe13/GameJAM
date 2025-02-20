@@ -5,60 +5,67 @@ public class ItmGet : MonoBehaviour
     [SerializeField] private GameObject crane;
     [SerializeField] private TargetItem TargetItem;
     [SerializeField] private GameObject audioManager;
-    [SerializeField] private GameObject itemGetParticle;
 
+ [SerializeField] private GameObject itemGetParticle;
+    [SerializeField] private GeneratingManager generatingManager;
+    private void Start()
+    {
+        TargetItem.TargetSet();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Šl“¾‚Ìƒp[ƒeƒBƒNƒ‹¶¬
+        //ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Ìƒpï¿½[ï¿½eï¿½Bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Instantiate(itemGetParticle,collision.gameObject.transform.position,Quaternion.identity);
-        //ƒXƒ^[‚ğ“ü‚ê‚½‚Ìˆ—
+        //ï¿½Xï¿½^ï¿½[ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (collision.gameObject.tag == "Star")
         {
-            AddScoreOnDestroy(collision, 10);//ƒXƒRƒA‚ğ10“_‰ÁZ
+            AddScoreOnDestroy(collision, 10);//ï¿½Xï¿½Rï¿½Aï¿½ï¿½10ï¿½_ï¿½ï¿½ï¿½Z
         }
-        //Šî‘bƒpƒ[ƒAƒbƒvƒAƒCƒeƒ€‚ğ“ü‚ê‚½‚Æ‚«‚Ìˆ—
+        //ï¿½ï¿½bï¿½pï¿½ï¿½ï¿½[ï¿½Aï¿½bï¿½vï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (collision.gameObject.tag == "BasePowerUp")
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
-            crane.GetComponent<MagneticForceVariable>().AddBase();//ƒNƒŒ[ƒ“‚ÌŠî‘bƒpƒ[‚ğ‘‰Á
+            crane.GetComponent<MagneticForceVariable>().AddBase();//ï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÌŠï¿½bï¿½pï¿½ï¿½ï¿½[ï¿½ğ‘‰ï¿½
             AddScoreOnDestroy(collision, 100);
-            Debug.Log("Šî‘b’lƒpƒ[ƒAƒbƒvI");
+            Debug.Log("ï¿½ï¿½bï¿½lï¿½pï¿½ï¿½ï¿½[ï¿½Aï¿½bï¿½vï¿½I");
         }
-        //”{—¦ƒpƒ[ƒAƒbƒv‚ğ“ü‚ê‚½‚Æ‚«‚Ìˆ—
+        //ï¿½{ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½[ï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (collision.gameObject.tag == "RatePowerUp")
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
-            crane.GetComponent<MagneticForceVariable>().AddMagnification();//ƒNƒŒ[ƒ“‚Ì”{—¦ƒpƒ[‚ğ‘‰Á
+            crane.GetComponent<MagneticForceVariable>().AddMagnification();//ï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì”{ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½[ï¿½ğ‘‰ï¿½
             AddScoreOnDestroy(collision, 100);
-            Debug.Log("”{—¦ƒpƒ[ƒAƒbƒvI");
+            Debug.Log("ï¿½{ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½[ï¿½Aï¿½bï¿½vï¿½I");
         }
-        //‰¡•ƒpƒ[ƒAƒbƒv‚ğ“ü‚ê‚½‚Æ‚«‚Ìˆ—
+        //ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½[ï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (collision.gameObject.tag == "WidthPowerUp")
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             AddScoreOnDestroy(collision, 100);
-            Debug.Log("‰¡•ƒpƒ[ƒAƒbƒvI");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½[ï¿½Aï¿½bï¿½vï¿½I");
         }
-        //ƒ^[ƒ“‰ñ•œ”ƒAƒbƒv‚ğ“ü‚ê‚½‚Æ‚«‚Ìˆ—
+        //ï¿½^ï¿½[ï¿½ï¿½ï¿½ñ•œï¿½ï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
         if (collision.gameObject.tag == "TurnRecoveryUp")
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             AddScoreOnDestroy(collision, 100);
-            Debug.Log("ƒ^[ƒ“‰ñ•œ”ƒAƒbƒvI");
+            Debug.Log("ï¿½^ï¿½[ï¿½ï¿½ï¿½ñ•œï¿½ï¿½Aï¿½bï¿½vï¿½I");
         }
-        //–Ú•WƒAƒCƒeƒ€‚ğæ“¾‚µ‚½Û‚Ìˆ—
+        //ï¿½Ú•Wï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½ï¿½Û‚Ìï¿½ï¿½ï¿½
         if (collision.gameObject.tag == "Target")
         {
             AddScoreOnDestroy(collision, 1000);
-            Debug.Log("íœI");
+            Debug.Log("ï¿½íœï¿½I");
 
             if (TargetItem.PushItem[0].name == collision.gameObject.name)
             {
-                Debug.Log("–Ú•W‚ÌƒAƒCƒeƒ€‚ğƒQƒbƒgI");
+                Debug.Log("ï¿½Ú•Wï¿½ÌƒAï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½bï¿½gï¿½I");
+                TargetItem.TargetSet();
+                generatingManager.Generation();
             }
             else
             {
-                Debug.Log("ƒ^[ƒQƒbƒgƒAƒCƒeƒ€‚ğƒQƒbƒgI");
+                Debug.Log("ï¿½^ï¿½[ï¿½Qï¿½bï¿½gï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½bï¿½gï¿½I");
             }
         }
     }
@@ -66,6 +73,6 @@ public class ItmGet : MonoBehaviour
     private void AddScoreOnDestroy(Collider2D collision,int addScore)
     {
         Destroy(collision.gameObject);
-        ScoreKeep.score += addScore;//ƒXƒRƒA‚ğ‰ÁZ
+        ScoreKeep.score += addScore;//ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Z
     }
 }

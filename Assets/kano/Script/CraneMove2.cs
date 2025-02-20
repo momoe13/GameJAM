@@ -37,31 +37,33 @@ public class CraneMove2 : MonoBehaviour
     {
         state = State.PUSH;
 
+
     }
     private void Update()
     {
         /*
-        //fixedÇ…Ç∑ÇÈèÍçá
-        bool isKeyDown, isKey, isKeyUp;
+         //fixedÇ…Ç∑ÇÈèÍçá
+        bool isKeyDown, isKey, isKeyUp; 
         isKeyDown = Input.GetKeyDown(KeyCode.Space);
         isKey = Input.GetKey(KeyCode.Space);
         isKeyUp = Input.GetKeyUp(KeyCode.Space);
-        */
+         */
+
 
         switch (state)
         {
             case State.PUSH:
                 ArmCommand1();
                 break;
-            
+
             case State.MASHING:
                 ArmCommand2();
                 break;
-            
+
             case State.DOWN:
                 ArmCommand3();
                 break;
-                
+
             case State.WAIT:
                 ArmCommand4();
                 break;
@@ -88,26 +90,28 @@ public class CraneMove2 : MonoBehaviour
                 Debug.Log("Ç»ÇÒÇ‡ÇµÇƒÇ»Ç¢ÇÃÇ…Ç±ÇÌÇÍÇΩ");
                 break;
         }
-       // Debug.Log(state.ToString());
+        // Debug.Log(state.ToString());
     }
+    
 
     void ArmCommand1()
     {
         //if(isKey){
-        if (Input.GetKey(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space))
         {
-            transform.position += armSpeed[(int)State.PUSH];
-
+            Debug.Log("åƒÇ—èoÇµê¨å˜");
+            transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
-        else if(100 <= transform.position.x || Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) || 8 <= transform.position.x)
         {
-            wait = 4.0f;
+            wait = 2.0f;
             state++;
         }
     }
 
     void ArmCommand2()
     {
+        Debug.Log("åƒÇ—èoÇµê¨å˜");
         wait -= Time.deltaTime;
 
         if (0 < wait)

@@ -11,6 +11,7 @@ public class ItmGet : MonoBehaviour
     private void Start()
     {
         TargetItem.TargetSet();
+        generatingManager.Generation();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

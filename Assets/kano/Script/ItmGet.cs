@@ -5,7 +5,12 @@ public class ItmGet : MonoBehaviour
     [SerializeField] private GameObject crane;
     [SerializeField] private TargetItem TargetItem;
     [SerializeField] private GameObject audioManager;
+    [SerializeField] private GeneratingManager generatingManager;
 
+    private void Start()
+    {
+        TargetItem.TargetSet();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //スターを入れた時の処理
@@ -66,6 +71,8 @@ public class ItmGet : MonoBehaviour
             if (TargetItem.PushItem[0].name == collision.gameObject.name)
             {
                 Debug.Log("目標のアイテムをゲット！");
+                TargetItem.TargetSet();
+                generatingManager.Generation();
             }
             else
             {

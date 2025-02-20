@@ -14,28 +14,23 @@ public class TargetItem : MonoBehaviour
 
     [SerializeField]int itemNum;        　//使いまわし用変数
 
-    private void Update()
+   public void TargetSet()
     {
-        if (Input.GetKeyDown(KeyCode.C))//Cを押して目標を指定（仮）
-        {
-            //目標アイテム設定
+       // 目標アイテム設定
             targetNum = Random.Range(0, ItemNumbers.Length);
 
-            //シーンに登場させる目標アイテム
-            PushItem[0] = PrfbItems[targetNum];
+        //シーンに登場させる目標アイテム
+        PushItem[0] = PrfbItems[targetNum];
 
-            //パワーアップアイテム
-            itemNum = Random.Range(0, PowerItems.Length);
-            PushItem[1] = PowerItems[itemNum];
+        //パワーアップアイテム
+        itemNum = Random.Range(0, PowerItems.Length);
+        PushItem[1] = PowerItems[itemNum];
 
-            //その他プライズ
-            for (int i = 0; i < PushItem.Length-2; i++) 
-            {
-                itemNum = Random.Range(0, ItemNumbers.Length);
-                PushItem[i+2] = PrfbItems[itemNum];
-            }
+        //その他プライズ
+        for (int i = 0; i < PushItem.Length - 2; i++)
+        {
+            itemNum = Random.Range(0, ItemNumbers.Length);
+            PushItem[i + 2] = PrfbItems[itemNum];
         }
-     //   Debug.Log("目標は" + PushItem[0].ToString());
-
     }
 }

@@ -18,23 +18,22 @@ public class ScoreManager : MonoBehaviour
         //初期化
     }
     private void Update()
-    {
-        Text scoreText = scoreObject.GetComponent<Text>();
-        Text sterScoreText = sterScoreObject.GetComponent<Text>();
-        Text basePowerUpScoreText = basePowerUpScoreObject.GetComponent<Text>();
-        Text ratePowerUpScoreText = ratePowerUpScoreObject.GetComponent<Text>();
-        Text widthPowerUpScoreText = widthPowerUpScoreObject.GetComponent<Text>();
-        Text turnRecoveryUpScoreText = turnRecoveryUpScoreObject.GetComponent<Text>();
-        Text prizeScoreText = prizeScoreObject.GetComponent<Text>();
+    {  Text scoreText = scoreObject.GetComponent<Text>();
+        //    Text sterScoreText = sterScoreObject.GetComponent<Text>();
+        //    Text basePowerUpScoreText = basePowerUpScoreObject.GetComponent<Text>();
+        //    Text ratePowerUpScoreText = ratePowerUpScoreObject.GetComponent<Text>();
+        //    Text widthPowerUpScoreText = widthPowerUpScoreObject.GetComponent<Text>();
+        //    Text turnRecoveryUpScoreText = turnRecoveryUpScoreObject.GetComponent<Text>();
+        //    Text prizeScoreText = prizeScoreObject.GetComponent<Text>();
 
         //テキストの表示入替
         scoreText.text = "スコア:" + ScoreKeep.score.ToString();
-        sterScoreText.text = "星の獲得数:" + ScoreKeep.sterScore.ToString();
-        basePowerUpScoreText.text = "基礎パワーアップ獲得数:" + ScoreKeep.basePowerUpScore.ToString();
-        ratePowerUpScoreText.text = "倍率パワーアップ獲得数:" + ScoreKeep.ratePowerUpScore.ToString();
-        widthPowerUpScoreText.text = "横幅パワーアップ獲得数:" + ScoreKeep.widthPowerUpScore.ToString();
-        turnRecoveryUpScoreText.text = "ターン回復アイテム獲得数:" + ScoreKeep.turnRecoveryUpScore.ToString();
-        prizeScoreText.text = "景品の獲得数:" + ScoreKeep.prizeScore.ToString();
+        //    sterScoreText.text = "星の獲得数:" + ScoreKeep.sterScore.ToString();
+        //    basePowerUpScoreText.text = "基礎パワーアップ獲得数:" + ScoreKeep.basePowerUpScore.ToString();
+        //    ratePowerUpScoreText.text = "倍率パワーアップ獲得数:" + ScoreKeep.ratePowerUpScore.ToString();
+        //    widthPowerUpScoreText.text = "横幅パワーアップ獲得数:" + ScoreKeep.widthPowerUpScore.ToString();
+        //    turnRecoveryUpScoreText.text = "ターン回復アイテム獲得数:" + ScoreKeep.turnRecoveryUpScore.ToString();
+        //    prizeScoreText.text = "景品の獲得数:" + ScoreKeep.prizeScore.ToString();
 
 
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 085fca9b810e6894ab3eb999d7c5767a
+guid: acf6474091b7b084fb226986000e12ad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 120
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Power_up 1_0
+      name: Prize_S2_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 198
-        height: 197
+        x: 2
+        y: 446
+        width: 301
+        height: 239
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93d972e1a66d89b408fe26781da7ddce
-      internalID: 164453814
+      spriteID: 3257a172f92994b4d8b9acb48d22cb09
+      internalID: 657812393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power_up 1_1
+      name: Prize_S2_1
       rect:
         serializedVersion: 2
-        x: 201
-        y: 2
-        width: 198
-        height: 198
+        x: 315
+        y: 440
+        width: 386
+        height: 246
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f4d8804bbc57fb41a7901b5245989a0
-      internalID: -1642745042
+      spriteID: 2c43ffc546305044382c80f4bdff6f1e
+      internalID: -1315359814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power_up 1_2
+      name: Prize_S2_2
       rect:
         serializedVersion: 2
-        x: 405
-        y: 2
-        width: 198
-        height: 198
+        x: 10
+        y: 233
+        width: 479
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6af16e297680ec458e612e1239159fc
-      internalID: 176726787
+      spriteID: 0d1d8dc23faf9814caceb7fc92dc49bc
+      internalID: -1045484154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power_up 1_3
+      name: Prize_S2_3
       rect:
         serializedVersion: 2
-        x: 613
-        y: 2
-        width: 196
-        height: 196
+        x: 516
+        y: 3
+        width: 210
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a96713b6ad1fc4ab360ca35d5a22bb
-      internalID: 1335609792
+      spriteID: 5c4e0a60b70aeab449291f588a2e7bb0
+      internalID: -276915642
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Power_up 1_0: 164453814
-      Power_up 1_1: -1642745042
-      Power_up 1_2: 176726787
-      Power_up 1_3: 1335609792
+      Prize_S2_0: 657812393
+      Prize_S2_1: -1315359814
+      Prize_S2_2: -1045484154
+      Prize_S2_3: -276915642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

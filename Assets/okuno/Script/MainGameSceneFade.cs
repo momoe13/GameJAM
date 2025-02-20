@@ -76,7 +76,6 @@ public class MainGameSceneFade : MonoBehaviour
     /// <returns></returns>
     private IEnumerator LoadSceneAfterWait()
     {
-        Debug.Log("“ü‚Á‚½");
         fadeInParticle.SetActive(true);
         yield return new WaitForSeconds(2f);
         //SceneManager.GameLordScene();

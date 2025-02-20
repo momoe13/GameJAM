@@ -68,7 +68,6 @@ public class ItmGet : MonoBehaviour
                 Debug.Log("�ڕW�̃A�C�e�����Q�b�g�I");
                 TargetItem.TargetSet();
                 generatingManager.Generation();
-                turnManager.GetComponent<TurnManager>().TurnCountUp();
                 ScoreKeep.score += 1000;
 
             }

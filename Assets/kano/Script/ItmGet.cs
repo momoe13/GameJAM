@@ -60,7 +60,7 @@ public class ItmGet : MonoBehaviour
             AddScoreOnDestroy(collision, 1000);
             Debug.Log("�폜�I");
 
-            if (TargetItem.PushItem[0].name == collision.gameObject.name)
+            if (TargetItem.PushItem[0].name + "(Clone)" == collision.gameObject.name )
             {
                 Debug.Log("生成");
                 TargetItem.TargetSet();

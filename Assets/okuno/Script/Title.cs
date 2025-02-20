@@ -27,7 +27,7 @@ public class Title : MonoBehaviour
     {
         if (isSpace)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 if (spaceCount == 0)
                 {

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour
 {
+    [SerializeField] private GameObject fadeManager;
     public GameObject turnObject = null;
     public float turnCount = 3;
 
@@ -19,14 +20,14 @@ public class TurnManager : MonoBehaviour
         Text turnText = turnObject.GetComponent<Text>();
         turnText.text = turnCount.ToString();//残りターン数を表示
 
-       // Debug.Log(turnCount);
+        // Debug.Log(turnCount);
         if (turnCount <= 0)
         {
-            //SceneManager.LoadScene("");
+            fadeManager.GetComponent<MainGameSceneFade>().FadeOut();
             //ゲームを終了
         }
 
-        
+
     }
     /// <summary>
     /// ターン数のカウント減少
@@ -42,6 +43,11 @@ public class TurnManager : MonoBehaviour
     /// </summary>
     public void TurnCountUp()
     {
-        turnCount++;
+        turnCount +=3;
+    }
+
+    public void ItemGetTurnCountUp()
+    {
+        turnCount +=5;
     }
 }

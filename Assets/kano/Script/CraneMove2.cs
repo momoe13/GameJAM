@@ -105,7 +105,7 @@ public class CraneMove2 : MonoBehaviour
             Debug.Log("ŒÄ‚Ño‚µ¬Œ÷");
             transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
-        else if (Input.GetKeyUp(KeyCode.Space) || 8 <= transform.position.x)
+        else if (Input.GetKeyUp(KeyCode.Space) || 6.5 <= transform.position.x)
         {
             wait = 2.0f;
             state++;

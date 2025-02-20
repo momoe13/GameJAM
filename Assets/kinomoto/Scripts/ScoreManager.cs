@@ -27,10 +27,10 @@ public class ScoreManager : MonoBehaviour
 
         //テキストの表示入替
         scoreText.text = ScoreKeep.score.ToString() + "てん";
-        sterScoreText.text = "ほし:" + ScoreKeep.sterScore.ToString();
-        basePowerUpScoreText.text = "基礎パワーアップ獲得数:" + ScoreKeep.basePowerUpScore.ToString();
-        ratePowerUpScoreText.text = "倍率パワーアップ獲得数:" + ScoreKeep.ratePowerUpScore.ToString();
-        widthPowerUpScoreText.text = "横幅パワーアップ獲得数:" + ScoreKeep.widthPowerUpScore.ToString();
-        turnRecoveryUpScoreText.text = "ターン回復アイテム獲得数:" + ScoreKeep.turnRecoveryUpScore.ToString();
+        sterScoreText.text = "×:" + ScoreKeep.sterScore.ToString();
+        basePowerUpScoreText.text = "×" + ScoreKeep.basePowerUpScore.ToString();
+        ratePowerUpScoreText.text = "×" + ScoreKeep.ratePowerUpScore.ToString();
+        widthPowerUpScoreText.text = "×" + ScoreKeep.widthPowerUpScore.ToString();
+        turnRecoveryUpScoreText.text = "×" + ScoreKeep.turnRecoveryUpScore.ToString();
     }
 }

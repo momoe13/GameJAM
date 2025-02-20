@@ -12,12 +12,16 @@ public class CraneMove2 : MonoBehaviour
     TurnManager turnManager;
 
     [SerializeField] GameObject UFOanim;
+    [SerializeField] GameObject PushAnim;
 
     [SerializeField]
     bool IsHit = false;
 
     [SerializeField]
     private GameObject audioManager;
+
+    [SerializeField]
+    private Sprite[] Button;
 
     private enum State{ 
      PUSH,       //プレイヤーが押すターン
@@ -39,6 +43,7 @@ public class CraneMove2 : MonoBehaviour
     {
         state = State.PUSH;
         UFOanim.SetActive(false);
+        PushAnim.SetActive(false);
 
 
     }
@@ -107,6 +112,7 @@ public class CraneMove2 : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Space) || 8 <= transform.position.x)
         {
             wait = 2.0f;
+            PushAnim.SetActive(true);
             state++;
         }
     }
@@ -125,6 +131,7 @@ public class CraneMove2 : MonoBehaviour
         }
         else if (transform.position.y <= 30 || wait <= 0)
         {
+            PushAnim.SetActive(false);
             IsHit = false;
             wait = 5.0f;
             // 降りる効果音再生

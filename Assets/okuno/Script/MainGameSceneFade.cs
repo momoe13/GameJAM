@@ -46,6 +46,10 @@ public class MainGameSceneFade : MonoBehaviour
     /// <returns></returns>
     private IEnumerator CanvasOnAfterWait()
     {
+        if (isGameScene)
+        {
+            uiCanvas.SetActive(false);
+        }
         yield return new WaitForSeconds(0.5f);
         fadeImage.SetActive(false);
         if (isGameScene)

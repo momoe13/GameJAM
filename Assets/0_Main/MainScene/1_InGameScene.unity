@@ -4063,7 +4063,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: -0.01, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0.001, z: 0}
+  - {x: 0, y: 0.005, z: 0}
   - {x: -0.003, y: 0, z: 0}
   magneticForceVariable: {fileID: 751045051}
   turnManager: {fileID: 1717506639}

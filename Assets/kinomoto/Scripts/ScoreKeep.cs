@@ -16,4 +16,15 @@ public static class ScoreKeep
     public static int turnRecoveryUpScore;//ターン回復アイテム取得数の変数
 
     public static int prizeScore;//景品アイテム獲得数の変数
+
+    public static void AllValueReset()
+    {
+        score = 0;
+        sterScore = 0;
+        basePowerUpScore = 0;
+        ratePowerUpScore = 0;
+        widthPowerUpScore = 0;
+        turnRecoveryUpScore = 0;
+        prizeScore = 0;
+    }
 }

@@ -9,6 +9,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private GameObject fadeManager;
     public GameObject turnObject = null;
     public float turnCount = 3;
+    private bool isLoadScene = false;
 
     private void Start()
     {
@@ -23,7 +24,12 @@ public class TurnManager : MonoBehaviour
         // Debug.Log(turnCount);
         if (turnCount <= 0)
         {
-            fadeManager.GetComponent<MainGameSceneFade>().FadeOut();
+            if (!isLoadScene)
+            {
+                fadeManager = GameObject.Find("FadeManager");
+                fadeManager.GetComponent<TestParticle>().fadeCall();
+                isLoadScene = true;
+            }
             //ƒQ[ƒ€‚ğI—¹
         }
 
@@ -43,11 +49,11 @@ public class TurnManager : MonoBehaviour
     /// </summary>
     public void TurnCountUp()
     {
-        turnCount +=3;
+        turnCount += 3;
     }
 
     public void ItemGetTurnCountUp()
     {
-        turnCount +=5;
+        turnCount += 5;
     }
 }

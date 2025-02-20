@@ -17,6 +17,12 @@ public class Title : MonoBehaviour
     [SerializeField] private AudioSource seAudioSource;
     private int spaceCount = 0;
 
+
+    private void Start()
+    {
+        ScoreKeep.AllValueReset();
+    }
+
     void Update()
     {
         if (isSpace)
@@ -34,6 +40,10 @@ public class Title : MonoBehaviour
                 {
                     seAudioSource.PlayOneShot(seAudioSource.clip);
                     spaceCount++;
+                    if (fadeManager == null)
+                    {
+                        fadeManager = GameObject.Find("FadeManager");
+                    }
                     fadeManager.GetComponent<TestParticle>().fadeCall();
                     spaceCount++;
                 }

@@ -59,6 +59,7 @@ public class ItmGet : MonoBehaviour
         //�ڕW�A�C�e�����擾�����ۂ̏���
         if (collision.gameObject.tag == "Target")
         {
+            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             AddScoreOnDestroy(collision, 1000);
             ScoreKeep.prizeScore += 1;
 

@@ -1,10 +1,12 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestParticle : MonoBehaviour
 {
+    public static TestParticle Instance { get; private set; }
     enum State
     {
         TITLE = 0,
@@ -13,9 +15,25 @@ public class TestParticle : MonoBehaviour
     };
 
     [SerializeField] private GameObject particleParent;
-    [SerializeField] private GameObject fadeIn;
-    [SerializeField] private GameObject fadeOut;
+    [SerializeField] private ParticleSystem fadeIn;
+    [SerializeField] private ParticleSystem fadeOut;
     private State state = 0;
+
+    [SerializeField] private GameObject fadeManager;
+    private bool isLoadScene = false;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("重複するTestParticleが破棄されました。");
+            Destroy(gameObject); // 重複したインスタンスを破棄
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -23,44 +41,42 @@ public class TestParticle : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(fade());
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "2_ResultScene" && !isLoadScene)
+            {
+                fadeCall();
+                isLoadScene = true;
+            }
         }
     }
 
     public void fadeCall()
     {
         StartCoroutine(fade());
+        Debug.Log("FadeCallが呼ばれた");
     }
 
     private IEnumerator fade()
     {
-        fadeIn.SetActive(true);
+        fadeIn.Play();
         yield return new WaitForSeconds(1.7f);
-        fadeOut.SetActive(true);
-        if ((int)state == 0)
+        fadeOut.Play();
+        if (state == State.TITLE)
         {
             SceneManager.GameLordScene();
         }
-        else if((int)state == 1)
+        else if (state == State.GAMESCENE)
         {
             SceneManager.GameOverLordScene();
         }
-        else if((int)state == 2)
+        else if (state == State.RESULT)
         {
             SceneManager.TitleLordScene();
+            isLoadScene = false;
         }
-        if ((int)state <= 2)
-        {
-            state++;
-        }
-        else
-        {
-            state = 0;
-        }
-        yield return new WaitForSeconds(2.0f);
-        fadeIn.SetActive(false);
-        fadeOut.SetActive(false);
+        state = state < State.RESULT ? state + 1 : State.TITLE;
+        Debug.Log("今の状態" + state.ToString());
+        yield return new WaitForSeconds(3.0f);
     }
 }

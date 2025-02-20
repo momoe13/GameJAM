@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ItmGet : MonoBehaviour
@@ -6,8 +7,9 @@ public class ItmGet : MonoBehaviour
     [SerializeField] private TargetItem TargetItem;
     [SerializeField] private GameObject audioManager;
 
- [SerializeField] private GameObject itemGetParticle;
+    [SerializeField] private GameObject itemGetParticle;
     [SerializeField] private GeneratingManager generatingManager;
+
     private void Start()
     {
         TargetItem.TargetSet();
@@ -16,7 +18,7 @@ public class ItmGet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //�l�����̃p�[�e�B�N������
-        Instantiate(itemGetParticle,collision.gameObject.transform.position,Quaternion.identity);
+        Destroy(Instantiate(itemGetParticle,collision.gameObject.transform.position,Quaternion.identity),1.0f);
         //�X�^�[����ꂽ���̏���
         if (collision.gameObject.tag == "Star")
         {

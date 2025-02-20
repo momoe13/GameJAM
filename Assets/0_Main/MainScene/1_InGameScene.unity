@@ -1820,6 +1820,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3673308898951527636, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 05e0008e8e11e6340bb244ced488239e, type: 3}
     - target: {fileID: 4281369430021043358, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
       propertyPath: initialBase
       value: -120
@@ -3001,7 +3005,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 05e0008e8e11e6340bb244ced488239e, type: 3}
     m_FontSize: 46
     m_FontStyle: 0
     m_BestFit: 0

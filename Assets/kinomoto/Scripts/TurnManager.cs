@@ -49,7 +49,7 @@ public class TurnManager : MonoBehaviour
     /// </summary>
     public void TurnCountUp()
     {
-        turnCount += 3;
+        turnCount += 1;
     }
 
     public void ItemGetTurnCountUp()

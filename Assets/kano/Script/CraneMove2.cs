@@ -97,8 +97,9 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand1()
     {
         //if(isKey){
-        if (Input.GetKey(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("åƒÇ—èoÇµê¨å˜");
             transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
         else if (Input.GetKeyUp(KeyCode.Space) || 8 <= transform.position.x)

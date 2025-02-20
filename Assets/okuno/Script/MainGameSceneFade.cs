@@ -13,7 +13,7 @@ public class MainGameSceneFade : MonoBehaviour
 
     void Start()
     {
-        FadeIn();
+        //FadeIn();
     }
 
     private void Update()

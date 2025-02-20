@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TargetItem : MonoBehaviour
 {
@@ -14,13 +15,17 @@ public class TargetItem : MonoBehaviour
 
     [SerializeField]int itemNum;        　//使いまわし用変数
 
+    [SerializeField] private Image target;
+
    public void TargetSet()
     {
        // 目標アイテム設定
-            targetNum = Random.Range(0, ItemNumbers.Length);
+         targetNum = Random.Range(0, ItemNumbers.Length);
 
         //シーンに登場させる目標アイテム
         PushItem[0] = PrfbItems[targetNum];
+
+        target.sprite = PushItem[0].GetComponent<SpriteRenderer>().sprite;
 
         //パワーアップアイテム
         itemNum = Random.Range(0, PowerItems.Length);

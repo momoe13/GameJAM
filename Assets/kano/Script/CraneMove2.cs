@@ -21,7 +21,7 @@ public class CraneMove2 : MonoBehaviour
     private GameObject audioManager;
 
     [SerializeField]
-    private Sprite[] Button;
+    ButtonImageChangeManager ButtonImgChange;
 
     private enum State{ 
      PUSH,       //ÉvÉåÉCÉÑÅ[Ç™âüÇ∑É^Å[Éì
@@ -44,7 +44,6 @@ public class CraneMove2 : MonoBehaviour
         state = State.PUSH;
         UFOanim.SetActive(false);
         PushAnim.SetActive(false);
-
 
     }
     private void Update()
@@ -98,19 +97,22 @@ public class CraneMove2 : MonoBehaviour
                 Debug.Log("Ç»ÇÒÇ‡ÇµÇƒÇ»Ç¢ÇÃÇ…Ç±ÇÌÇÍÇΩ");
                 break;
         }
-        // Debug.Log(state.ToString());
     }
     
 
     void ArmCommand1()
     {
+        ButtonImgChange.SpriteChange(1);
+        
         //if(isKey){
         if (Input.GetKey(KeyCode.Space))
         {
+            ButtonImgChange.SpriteChange(2);
             transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
         else if (Input.GetKeyUp(KeyCode.Space) || 6.5 <= transform.position.x)
         {
+            ButtonImgChange.SpriteChange(3);
             wait = 2.0f;
             PushAnim.SetActive(true);
             state++;
@@ -143,7 +145,7 @@ public class CraneMove2 : MonoBehaviour
 
     void ArmCommand3()
     {
-        transform.position += armSpeed[(int)State.DOWN];
+        transform.position += armSpeed[(int)State.DOWN] * Time.deltaTime;
         if(IsHit)
         {
             // 1ïbå„Ç…ç~â∫SEí‚é~
@@ -166,7 +168,7 @@ public class CraneMove2 : MonoBehaviour
 
     void ArmCommand5()
     {
-        transform.position += armSpeed[(int)State.UP];
+        transform.position += armSpeed[(int)State.UP] * Time.deltaTime;
         if(transform.position.y >= 3)
         {
             // è„è∏SEí‚é~
@@ -177,10 +179,10 @@ public class CraneMove2 : MonoBehaviour
     
     void ArmCommand6()
     {
-        transform.position += armSpeed[(int)State.LEFT];
+        transform.position += armSpeed[(int)State.LEFT] * Time.deltaTime;
         if(transform.position.x <= -6)
         {
-            wait = 3;
+            wait = 2;
             UFOanim.SetActive(false);
             state++;
         }

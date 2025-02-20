@@ -105,12 +105,12 @@ public class CraneMove2 : MonoBehaviour
         ButtonImgChange.SpriteChange(1);
         
         //if(isKey){
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
             ButtonImgChange.SpriteChange(2);
             transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
-        else if (Input.GetKeyUp(KeyCode.Space) || 6.5 <= transform.position.x)
+        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || 6.5 <= transform.position.x)
         {
             ButtonImgChange.SpriteChange(3);
             wait = 2.0f;
@@ -125,7 +125,7 @@ public class CraneMove2 : MonoBehaviour
 
         if (0 < wait)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 //Ž¥—Í‚ð‘‚â‚·–½—ß
                 magneticForceVariable.GetKey();

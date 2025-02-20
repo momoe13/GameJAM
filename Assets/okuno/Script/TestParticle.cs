@@ -1,7 +1,4 @@
-using JetBrains.Annotations;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestParticle : MonoBehaviour
@@ -26,7 +23,6 @@ public class TestParticle : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.Log("重複するTestParticleが破棄されました。");
             Destroy(gameObject); // 重複したインスタンスを破棄
             return;
         }
@@ -41,7 +37,7 @@ public class TestParticle : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "2_ResultScene" && !isLoadScene)
             {
@@ -54,7 +50,6 @@ public class TestParticle : MonoBehaviour
     public void fadeCall()
     {
         StartCoroutine(fade());
-        Debug.Log("FadeCallが呼ばれた");
     }
 
     private IEnumerator fade()
@@ -76,7 +71,6 @@ public class TestParticle : MonoBehaviour
             isLoadScene = false;
         }
         state = state < State.RESULT ? state + 1 : State.TITLE;
-        Debug.Log("今の状態" + state.ToString());
         yield return new WaitForSeconds(3.0f);
     }
 }

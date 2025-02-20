@@ -37,8 +37,6 @@ public class ScoreManager : MonoBehaviour
         turnRecoveryUpScoreText.text = "ターン回復アイテム獲得数:" + ScoreKeep.turnRecoveryUpScore.ToString();
         //prizeScoreText.text = "景品の獲得数:" + ScoreKeep.prizeScore.ToString();
 
-
-
         //（仮）エスケープを押してリザルトに移動
         //スコアの引継ぎ確認用
         if (Input.GetKeyDown(KeyCode.N))

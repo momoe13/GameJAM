@@ -10,6 +10,8 @@ public class Title : MonoBehaviour
     [SerializeField] private GameObject fadeParticle;
     [SerializeField] private GameObject fadeImage;
 
+    [SerializeField] private GameObject fadeManager;
+
     [Header("オーディオ系")]
     [SerializeField] private AudioSource bgmAudioSource;
     [SerializeField] private AudioSource seAudioSource;
@@ -32,27 +34,11 @@ public class Title : MonoBehaviour
                 {
                     seAudioSource.PlayOneShot(seAudioSource.clip);
                     spaceCount++;
-                    // この下にシーンのロードの命令
-                    StartCoroutine(LoadSceneImageOn());
-                    StartCoroutine(LoadSceneAfterWait());
+                    fadeManager.GetComponent<TestParticle>().fadeCall();
                     spaceCount++;
                 }
+
             }
         }
-    }
-
-    private IEnumerator LoadSceneAfterWait()
-    {
-        fadeParticle.SetActive(true);
-        yield return new WaitForSeconds(2f);
-    }
-
-    private IEnumerator LoadSceneImageOn()
-    {
-        yield return new WaitForSeconds(1.55f);
-        fadeImage.SetActive(true);
-        Time.timeScale = 0;
-        SceneManager.GameLordScene();
-        Debug.Log("通った");
     }
 }

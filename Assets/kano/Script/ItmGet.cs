@@ -31,14 +31,16 @@ public class ItmGet : MonoBehaviour
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             crane.GetComponent<MagneticForceVariable>().AddBase();//�N���[���̊�b�p���[�𑝉�
             ScoreKeep.basePowerUpScore += 1;
-            AddScoreOnDestroy(collision, 100);        }
+            AddScoreOnDestroy(collision, 100);
+        }
         //�{���p���[�A�b�v����ꂽ�Ƃ��̏���
         if (collision.gameObject.tag == "RatePowerUp")
         {
             audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
             crane.GetComponent<MagneticForceVariable>().AddMagnification();//�N���[���̔{���p���[�𑝉�
             ScoreKeep.ratePowerUpScore += 1;
-            AddScoreOnDestroy(collision, 100);        }
+            AddScoreOnDestroy(collision, 100);
+        }
         //�����p���[�A�b�v����ꂽ�Ƃ��̏���
         if (collision.gameObject.tag == "WidthPowerUp")
         {
@@ -66,6 +68,7 @@ public class ItmGet : MonoBehaviour
                 TargetItem.TargetSet();
                 generatingManager.Generation();
                 turnManager.GetComponent<TurnManager>().TurnCountUp();
+                ScoreKeep.score += 1000;
 
             }
             else

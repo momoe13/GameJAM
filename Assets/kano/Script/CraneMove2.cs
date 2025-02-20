@@ -102,7 +102,6 @@ public class CraneMove2 : MonoBehaviour
         //if(isKey){
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("ŒÄ‚Ño‚µ¬Œ÷");
             transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
         else if (Input.GetKeyUp(KeyCode.Space) || 8 <= transform.position.x)
@@ -114,7 +113,6 @@ public class CraneMove2 : MonoBehaviour
 
     void ArmCommand2()
     {
-        Debug.Log("ŒÄ‚Ño‚µ¬Œ÷");
         wait -= Time.deltaTime;
 
         if (0 < wait)

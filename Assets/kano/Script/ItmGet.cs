@@ -60,12 +60,15 @@ public class ItmGet : MonoBehaviour
 
             if (TargetItem.PushItem[0].name == collision.gameObject.name)
             {
-                Debug.Log("�ڕW�̃A�C�e�����Q�b�g�I");
+                Debug.Log("生成");
                 TargetItem.TargetSet();
                 generatingManager.Generation();
+       
             }
             else
             {
+
+                Debug.Log("生成失敗");
                 Debug.Log("�^�[�Q�b�g�A�C�e�����Q�b�g�I");
             }
         }

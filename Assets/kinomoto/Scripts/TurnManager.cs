@@ -54,6 +54,6 @@ public class TurnManager : MonoBehaviour
 
     public void ItemGetTurnCountUp()
     {
-        turnCount += 5;
+        turnCount += 3;
     }
 }

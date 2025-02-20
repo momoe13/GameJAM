@@ -11,6 +11,8 @@ public class CraneMove2 : MonoBehaviour
     [SerializeField]
     TurnManager turnManager;
 
+    [SerializeField] GameObject UFOanim;
+
     [SerializeField]
     bool IsHit = false;
 
@@ -36,6 +38,7 @@ public class CraneMove2 : MonoBehaviour
     private void Start()
     {
         state = State.PUSH;
+        UFOanim.SetActive(false);
 
 
     }
@@ -128,6 +131,7 @@ public class CraneMove2 : MonoBehaviour
             wait = 5.0f;
             // ç~ÇËÇÈå¯â âπçƒê∂
             audioManager.GetComponent<GameSceneAudioManager>().ArmDownSound();
+            UFOanim.SetActive(true);
             state++;
         }
     }
@@ -172,6 +176,7 @@ public class CraneMove2 : MonoBehaviour
         if(transform.position.x <= -6)
         {
             wait = 3;
+            UFOanim.SetActive(false);
             state++;
         }
     }

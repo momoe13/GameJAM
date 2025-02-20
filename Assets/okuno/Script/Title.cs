@@ -45,7 +45,6 @@ public class Title : MonoBehaviour
     {
         fadeParticle.SetActive(true);
         yield return new WaitForSeconds(2f);
-        //SceneManager.GameLordScene();
     }
 
     private IEnumerator LoadSceneImageOn()
@@ -53,5 +52,7 @@ public class Title : MonoBehaviour
         yield return new WaitForSeconds(1.55f);
         fadeImage.SetActive(true);
         Time.timeScale = 0;
+        SceneManager.GameLordScene();
+        Debug.Log("’Ê‚Á‚½");
     }
 }

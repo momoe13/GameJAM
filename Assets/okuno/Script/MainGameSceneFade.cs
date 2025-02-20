@@ -64,6 +64,10 @@ public class MainGameSceneFade : MonoBehaviour
         yield return new WaitForSeconds(1.55f);
         fadeImage.SetActive(true);
         Time.timeScale = 0;
+        if (isGameScene)
+        {
+            SceneManager.GameOverLordScene();
+        }
     }
 
     private IEnumerator ScoreUiOff()

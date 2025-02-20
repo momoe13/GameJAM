@@ -17,7 +17,7 @@ public static class SceneManager
 
     public static void GameOverLordScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("2_ResultScene");
         Time.timeScale = 1.0f;
     }
 }

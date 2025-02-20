@@ -19,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     }
     private void Update()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     {  Text scoreText = scoreObject.GetComponent<Text>();
         //    Text sterScoreText = sterScoreObject.GetComponent<Text>();
         //    Text basePowerUpScoreText = basePowerUpScoreObject.GetComponent<Text>();
@@ -29,6 +30,8 @@ public class ScoreManager : MonoBehaviour
 
         //テキストの表示入替
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
     {
         Text scoreText = scoreObject.GetComponent<Text>();
@@ -57,6 +60,9 @@ public class ScoreManager : MonoBehaviour
         //    Text prizeScoreText = prizeScoreObject.GetComponent<Text>();
 
         //テキストの表示入替
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         scoreText.text = "スコア:" + ScoreKeep.score.ToString();
         //    sterScoreText.text = "星の獲得数:" + ScoreKeep.sterScore.ToString();
@@ -66,6 +72,10 @@ public class ScoreManager : MonoBehaviour
         //    turnRecoveryUpScoreText.text = "ターン回復アイテム獲得数:" + ScoreKeep.turnRecoveryUpScore.ToString();
         //    prizeScoreText.text = "景品の獲得数:" + ScoreKeep.prizeScore.ToString();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> a0cc5b4139dc7bfd90e65c1f1752929886b717f2
+>>>>>>> Stashed changes
 =======
 >>>>>>> a0cc5b4139dc7bfd90e65c1f1752929886b717f2
 >>>>>>> Stashed changes

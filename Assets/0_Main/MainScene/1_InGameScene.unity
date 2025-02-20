@@ -3734,10 +3734,10 @@ MonoBehaviour:
   armSpeed:
   - {x: 6, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: -2, z: 0}
+  - {x: 0, y: -2.5, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0.9, z: 0}
-  - {x: -0.9, y: 0, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: -1, y: 0, z: 0}
   magneticForceVariable: {fileID: 751045051}
   turnManager: {fileID: 1717506639}
   UFOanim: {fileID: 944038651}

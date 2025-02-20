@@ -102,17 +102,17 @@ public class CraneMove2 : MonoBehaviour
 
     void ArmCommand1()
     {
-        ButtonImgChange.SpriteChange(1);
+        ButtonImgChange.SpriteChange(0);
         
         //if(isKey){
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.Space)  || Input.GetMouseButton(0) )
         {
-            ButtonImgChange.SpriteChange(2);
+            ButtonImgChange.SpriteChange(1);
             transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
         }
-        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || 6.5 <= transform.position.x)
+         if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || 6.5f <= this.transform.position.x)
         {
-            ButtonImgChange.SpriteChange(3);
+            ButtonImgChange.SpriteChange(2);
             wait = 2.0f;
             PushAnim.SetActive(true);
             state++;

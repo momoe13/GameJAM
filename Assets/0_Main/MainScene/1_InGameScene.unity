@@ -1233,9 +1233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonImage:
-  - {fileID: 21300000, guid: e99247e1a07f9d247a5f29460a844094, type: 3}
-  - {fileID: 21300000, guid: 36596ccaf1ef57f4d955c16c6ab87f44, type: 3}
-  - {fileID: 21300000, guid: 27aa9cc22570bf34f96da33520aa117b, type: 3}
+  - {fileID: 21300000, guid: e72b9a775f5343a45a39da2a2c215103, type: 3}
+  - {fileID: 21300000, guid: 65664a5e60f044844995139f9f9e9222, type: 3}
+  - {fileID: 21300000, guid: 98a572772bb5ddd499af114924093e25, type: 3}
 --- !u!212 &452247718
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1285,7 +1285,7 @@ SpriteRenderer:
   m_Size: {x: 1.6666666, y: 1.6666666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &452247719
@@ -3734,10 +3734,10 @@ MonoBehaviour:
   armSpeed:
   - {x: 6, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: -0.7, z: 0}
+  - {x: 0, y: -2, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0.45, z: 0}
-  - {x: -0.45, y: 0, z: 0}
+  - {x: 0, y: 0.9, z: 0}
+  - {x: -0.9, y: 0, z: 0}
   magneticForceVariable: {fileID: 751045051}
   turnManager: {fileID: 1717506639}
   UFOanim: {fileID: 944038651}

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject fadeManager;
     public GameObject turnObject = null;
     public float turnCount = 3;
     private bool isLoadScene = false;
@@ -26,8 +25,7 @@ public class TurnManager : MonoBehaviour
         {
             if (!isLoadScene)
             {
-                fadeManager = GameObject.Find("FadeManager");
-                fadeManager.GetComponent<TestParticle>().fadeCall();
+                TestParticle.Instance.fadeCall();
                 isLoadScene = true;
             }
             //ƒQ[ƒ€‚ğI—¹

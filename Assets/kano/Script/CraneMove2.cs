@@ -18,9 +18,6 @@ public class CraneMove2 : MonoBehaviour
     bool IsHit = false;
 
     [SerializeField]
-    private GameObject audioManager;
-
-    [SerializeField]
     ButtonImageChangeManager ButtonImgChange;
 
     private enum State{ 
@@ -137,7 +134,7 @@ public class CraneMove2 : MonoBehaviour
             IsHit = false;
             wait = 5.0f;
             // ç~ÇËÇÈå¯â âπçƒê∂
-            audioManager.GetComponent<GameSceneAudioManager>().ArmDownSound();
+            AudioManager.Instance.CraneDownSEPlay();
             UFOanim.SetActive(true);
             state++;
         }
@@ -161,7 +158,7 @@ public class CraneMove2 : MonoBehaviour
         if(0 > wait)
         {
             // è„è∏SEçƒê∂
-            audioManager.GetComponent<GameSceneAudioManager>().ArmUpSound();
+            AudioManager.Instance.CraneUpSEPlay();
             state++;
         }
     }
@@ -172,7 +169,7 @@ public class CraneMove2 : MonoBehaviour
         if(transform.position.y >= 3)
         {
             // è„è∏SEí‚é~
-            audioManager.GetComponent<GameSceneAudioManager>().SoundStop();
+            AudioManager.Instance.StopSEPlay();
             state++;
         }
     }
@@ -204,6 +201,6 @@ public class CraneMove2 : MonoBehaviour
     private IEnumerator StopSoundAfterHit(float waitSeconds)
     {
         yield return new WaitForSeconds(waitSeconds);
-        audioManager.GetComponent<GameSceneAudioManager>().SoundStop();
+        AudioManager.Instance.StopSEPlay();
     }
 }

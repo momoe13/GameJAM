@@ -5,7 +5,6 @@ public class ItmGet : MonoBehaviour
 {
     [SerializeField] private GameObject crane;
     [SerializeField] private TargetItem TargetItem;
-    [SerializeField] private GameObject audioManager;
 
     [SerializeField] private GameObject itemGetParticle;
     [SerializeField] private GeneratingManager generatingManager;
@@ -28,7 +27,7 @@ public class ItmGet : MonoBehaviour
         //��b�p���[�A�b�v�A�C�e������ꂽ�Ƃ��̏���
         if (collision.gameObject.tag == "BasePowerUp")
         {
-            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            AudioManager.Instance.ItemGetSEPlay();
             crane.GetComponent<MagneticForceVariable>().AddBase();//�N���[���̊�b�p���[�𑝉�
             ScoreKeep.basePowerUpScore += 1;
             AddScoreOnDestroy(collision, 100);
@@ -36,7 +35,7 @@ public class ItmGet : MonoBehaviour
         //�{���p���[�A�b�v����ꂽ�Ƃ��̏���
         if (collision.gameObject.tag == "RatePowerUp")
         {
-            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            AudioManager.Instance.ItemGetSEPlay();
             crane.GetComponent<MagneticForceVariable>().AddMagnification();//�N���[���̔{���p���[�𑝉�
             ScoreKeep.ratePowerUpScore += 1;
             AddScoreOnDestroy(collision, 100);
@@ -44,14 +43,14 @@ public class ItmGet : MonoBehaviour
         //�����p���[�A�b�v����ꂽ�Ƃ��̏���
         if (collision.gameObject.tag == "WidthPowerUp")
         {
-            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            AudioManager.Instance.ItemGetSEPlay();
             ScoreKeep.widthPowerUpScore += 1;
             AddScoreOnDestroy(collision, 100);
         }
         //�^�[���񕜐��A�b�v����ꂽ�Ƃ��̏���
         if (collision.gameObject.tag == "TurnRecoveryUp")
         {
-            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            AudioManager.Instance.ItemGetSEPlay();
             turnManager.GetComponent<TurnManager>().ItemGetTurnCountUp();
             ScoreKeep.turnRecoveryUpScore += 1;
             AddScoreOnDestroy(collision, 100);
@@ -59,7 +58,7 @@ public class ItmGet : MonoBehaviour
         //�ڕW�A�C�e�����擾�����ۂ̏���
         if (collision.gameObject.tag == "Target")
         {
-            audioManager.GetComponent<GameSceneAudioManager>().PowerUpSound();
+            AudioManager.Instance.ItemGetSEPlay();
             AddScoreOnDestroy(collision, 1000);
             ScoreKeep.prizeScore += 1;
 

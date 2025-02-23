@@ -8,11 +8,7 @@ public class Title : MonoBehaviour
     // フェードの処理があるなら、それが終わったときにtrueにしてもらう
     [SerializeField] private bool isSpace = false;
 
-    [SerializeField] private GameObject fadeManager;
 
-    [Header("オーディオ系")]
-    [SerializeField] private AudioSource bgmAudioSource;
-    [SerializeField] private AudioSource seAudioSource;
     private int spaceCount = 0;
 
 
@@ -29,20 +25,16 @@ public class Title : MonoBehaviour
             {
                 if (spaceCount == 0)
                 {
-                    seAudioSource.PlayOneShot(seAudioSource.clip);
+                    AudioManager.Instance.SelectSEPlay();
                     spaceCount++;
                     spaceUi.SetActive(false);
                     helpUi.SetActive(true);
                 }
                 else if (spaceCount == 1)
                 {
-                    seAudioSource.PlayOneShot(seAudioSource.clip);
+                    AudioManager.Instance.SelectSEPlay();
                     spaceCount++;
-                    if (fadeManager == null)
-                    {
-                        fadeManager = GameObject.Find("FadeManager");
-                    }
-                    fadeManager.GetComponent<TestParticle>().fadeCall();
+                    TestParticle.Instance.fadeCall();
                     spaceCount++;
                 }
 

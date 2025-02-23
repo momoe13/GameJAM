@@ -33,7 +33,6 @@ public class TestParticle : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(particleParent);
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "0_TitleScene")
         {
             state = State.TITLE;

@@ -14,7 +14,6 @@ public class ButtonImageChangeManager : MonoBehaviour
 
     public void SpriteChange(int num)
     {
-        Debug.Log(num);
         switch (num) {
         
             case 0:

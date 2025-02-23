@@ -7,8 +7,6 @@ public class Title : MonoBehaviour
     [SerializeField] private GameObject spaceUi;
     // フェードの処理があるなら、それが終わったときにtrueにしてもらう
     [SerializeField] private bool isSpace = false;
-    [SerializeField] private GameObject fadeParticle;
-    [SerializeField] private GameObject fadeImage;
 
     [SerializeField] private GameObject fadeManager;
 

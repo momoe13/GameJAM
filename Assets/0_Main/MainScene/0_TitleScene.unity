@@ -199,6 +199,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144511960}
   m_CullTransparentMesh: 1
+--- !u!114 &249271903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9172316655912630489, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+  m_PrefabInstance: {fileID: 1645888284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563794184
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +764,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562750839}
   m_CullTransparentMesh: 1
+--- !u!114 &1611306749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6007848734083989314, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+  m_PrefabInstance: {fileID: 1645888284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1645888284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1170,11 +1192,11 @@ PrefabInstance:
     - target: {fileID: 6369864937478304665, guid: ea005efc03f2e2443b1cf4aab3b2000a, type: 3}
       propertyPath: seSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 249271903}
     - target: {fileID: 6369864937478304665, guid: ea005efc03f2e2443b1cf4aab3b2000a, type: 3}
       propertyPath: bgmSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1611306749}
     - target: {fileID: 6369864937478304665, guid: ea005efc03f2e2443b1cf4aab3b2000a, type: 3}
       propertyPath: sliderParent
       value: 

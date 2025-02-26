@@ -169,7 +169,7 @@ public class CraneMove2 : MonoBehaviour
         if(transform.position.y >= 3)
         {
             // è„è∏SEí‚é~
-            AudioManager.Instance.StopSEPlay();
+            AudioManager.Instance.StopCraneSEPlay();
             state++;
         }
     }
@@ -201,6 +201,6 @@ public class CraneMove2 : MonoBehaviour
     private IEnumerator StopSoundAfterHit(float waitSeconds)
     {
         yield return new WaitForSeconds(waitSeconds);
-        AudioManager.Instance.StopSEPlay();
+        AudioManager.Instance.StopCraneSEPlay();
     }
 }

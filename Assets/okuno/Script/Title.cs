@@ -5,10 +5,8 @@ public class Title : MonoBehaviour
 {
     [SerializeField] private GameObject helpUi;
     [SerializeField] private GameObject spaceUi;
+    [SerializeField] private GameObject optionUi;
     // フェードの処理があるなら、それが終わったときにtrueにしてもらう
-    [SerializeField] private bool isSpace = false;
-
-
     private int spaceCount = 0;
 
 
@@ -19,7 +17,7 @@ public class Title : MonoBehaviour
 
     void Update()
     {
-        if (isSpace)
+        if (IsPlaying.isPlay)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
@@ -37,7 +35,6 @@ public class Title : MonoBehaviour
                     TestParticle.Instance.fadeCall();
                     spaceCount++;
                 }
-
             }
         }
     }

@@ -143,7 +143,6 @@ public class AudioManager : MonoBehaviour
 
         //Sliderの値を参照し、音量を確実にセットする。
         SetBGMVolume(bgmSlider.value);
-        
         //AudioSurceのClipにタイトルのClipを格納
         bgmSource.clip = title;
         bgmSource.Play();
@@ -154,7 +153,7 @@ public class AudioManager : MonoBehaviour
         StopIfPlaying(bgmSource);
         isGameBgm = true;
         currentBGMBaseVolume = gameBGMBaseVolume;
-        SetSEVolume(seSlider.value);
+        SetBGMVolume(bgmSlider.value);
         bgmSource.clip = game;
         bgmSource.Play();
     }
@@ -231,22 +230,20 @@ public class AudioManager : MonoBehaviour
     public void UpdateBGMVolume(float newVolume)
     {
         bgmSource.volume = newVolume;
-        PlayerPrefs.SetFloat(BGMVolume, newVolume);
+        PlayerPrefs.SetFloat(BGMVolume, bgmSlider.value);
         PlayerPrefs.Save();
     }
 
     public void UpdateSEVolume(float newVolume)
     {
         normalSeSource.volume = newVolume;
-        PlayerPrefs.SetFloat(SEVolume, newVolume);
+        PlayerPrefs.SetFloat(SEVolume, seSlider.value);
         PlayerPrefs.Save();
     }
 
     public void UpdateCraneSEVolume(float newVolume)
     {
         craneSeSource.volume = newVolume;
-        PlayerPrefs.SetFloat(SEVolume, newVolume);
-        PlayerPrefs.Save();
     }
 
     /// <summary>

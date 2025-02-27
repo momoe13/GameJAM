@@ -20,17 +20,21 @@ public class CraneMove2 : MonoBehaviour
     [SerializeField]
     ButtonImageChangeManager ButtonImgChange;
 
-    private enum State{ 
-     PUSH,       //プレイヤーが押すターン
-     MASHING,    //連打ターン
-     DOWN,       //アームを下げる
-     WAIT,       //アーム停止
-     UP,         //アーム引き上げ
-     LEFT,       //横移動
-     RELEASE,    //解放　
-     RESET,      //全値初期化
-     
-     ENUM_END
+    //クレーンのSEの残り待機時間
+    private float remainingTime = 0;
+
+    private enum State
+    {
+        PUSH,       //プレイヤーが押すターン
+        MASHING,    //連打ターン
+        DOWN,       //アームを下げる
+        WAIT,       //アーム停止
+        UP,         //アーム引き上げ
+        LEFT,       //横移動
+        RELEASE,    //解放　
+        RESET,      //全値初期化
+
+        ENUM_END
     }
     private State state;
 
@@ -96,19 +100,19 @@ public class CraneMove2 : MonoBehaviour
                 break;
         }
     }
-    
+
 
     void ArmCommand1()
     {
         ButtonImgChange.SpriteChange(0);
-        
+
         //if(isKey){
-        if (Input.GetKey(KeyCode.Space)  || Input.GetMouseButton(0) )
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
             ButtonImgChange.SpriteChange(1);
-            transform.position += armSpeed[(int)State.PUSH] *Time.deltaTime;
+            transform.position += armSpeed[(int)State.PUSH] * Time.deltaTime;
         }
-         if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || 6.5f <= this.transform.position.x)
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || 6.5f <= this.transform.position.x)
         {
             ButtonImgChange.SpriteChange(2);
             wait = 2.0f;
@@ -123,7 +127,7 @@ public class CraneMove2 : MonoBehaviour
 
         if (0 < wait)
         {
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 //磁力を増やす命令
                 magneticForceVariable.GetKey();
@@ -144,7 +148,7 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand3()
     {
         transform.position += armSpeed[(int)State.DOWN] * Time.deltaTime;
-        if(IsHit)
+        if (IsHit)
         {
             // 1秒後に降下SE停止
             StartCoroutine(StopSoundAfterHit(1.5f));
@@ -156,7 +160,7 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand4()
     {
         wait -= Time.deltaTime;
-        if(0 > wait)
+        if (0 > wait)
         {
             // 上昇SE再生
             AudioManager.Instance.CraneUpSEPlay();
@@ -167,18 +171,18 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand5()
     {
         transform.position += armSpeed[(int)State.UP] * Time.deltaTime;
-        if(transform.position.y >= 3)
+        if (transform.position.y >= 3)
         {
             // 上昇SE停止
             AudioManager.Instance.StopCraneSEPlay();
             state++;
         }
     }
-    
+
     void ArmCommand6()
     {
         transform.position += armSpeed[(int)State.LEFT] * Time.deltaTime;
-        if(transform.position.x <= -6)
+        if (transform.position.x <= -6)
         {
             wait = 2;
             UFOanim.SetActive(false);
@@ -188,7 +192,7 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand7()
     {
         magneticForceVariable.MagneticOff();
-        wait -= Time.deltaTime ;
+        wait -= Time.deltaTime;
         if (0 > wait)
         {
             state++;
@@ -201,7 +205,16 @@ public class CraneMove2 : MonoBehaviour
 
     private IEnumerator StopSoundAfterHit(float waitSeconds)
     {
-        yield return new WaitForSeconds(waitSeconds);
+        remainingTime = waitSeconds;
+
+        while (remainingTime > 0)
+        {
+            if (!IsPlaying.isPlay)
+            {
+                remainingTime -= Time.deltaTime;
+            }
+            yield return null;
+        }
         AudioManager.Instance.StopCraneSEPlay();
     }
 }

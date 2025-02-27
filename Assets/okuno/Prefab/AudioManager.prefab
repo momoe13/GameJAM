@@ -65,6 +65,8 @@ MonoBehaviour:
   craneSeBaseVolume: 0.03
   itemGet: {fileID: 8300000, guid: 3f630c6b2256dbc4bae9918f4eff0b30, type: 3}
   itemGetSeBaseVolume: 0.005
+  bgmSlider: {fileID: 0}
+  seSlider: {fileID: 0}
 --- !u!1 &1308917582493768871
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +113,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.002
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

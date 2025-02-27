@@ -45,6 +45,7 @@ public class CraneMove2 : MonoBehaviour
     }
     private void Update()
     {
+        if (!IsPlaying.isPlay) { return; }
         /*
          //fixed‚É‚·‚éê‡
         bool isKeyDown, isKey, isKeyUp; 

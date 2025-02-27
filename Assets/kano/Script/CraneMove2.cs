@@ -209,7 +209,7 @@ public class CraneMove2 : MonoBehaviour
 
         while (remainingTime > 0)
         {
-            if (!IsPlaying.isPlay)
+            if (IsPlaying.isPlay)
             {
                 remainingTime -= Time.deltaTime;
             }

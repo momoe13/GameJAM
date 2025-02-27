@@ -48,6 +48,7 @@ public class TestParticle : MonoBehaviour
     }
     private void Update()
     {
+        if (!IsPlaying.isPlay) { return; }
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "2_ResultScene" && !isLoadScene)

@@ -1257,6 +1257,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionCanvasParent
       objectReference: {fileID: 0}
+    - target: {fileID: 5749952114351026023, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 210611702}
+    - target: {fileID: 5749952114351026023, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6007848734083989314, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

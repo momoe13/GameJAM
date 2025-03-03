@@ -1053,9 +1053,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1407234074477433402, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407234074477433402, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407234074477433402, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637813592990705261, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637813592990705261, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304544348012644748, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590771418567177722, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590771418567177722, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590771418567177722, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5593201418838651714, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
       propertyPath: m_Name
       value: OptionCanvasParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749952114351026023, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 79079489}
+    - target: {fileID: 5749952114351026023, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7200538114998200621, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1095,6 +1139,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7200538114998200621, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520436525547110496, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520436525547110496, guid: 0598316c79c50d44e93cd1637c706a55, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

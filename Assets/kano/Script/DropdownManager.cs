@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DropdownManager : MonoBehaviour
 { 
@@ -39,13 +38,4 @@ public class DropdownManager : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            //Screen.SetResolution(1768, 992, false);
-            Screen.SetResolution(640, 480, false);
-            Debug.Log("aaaa");
-        }
-    }
 }

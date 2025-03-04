@@ -11,7 +11,7 @@ public static class SceneManager
 
     public static void GameLordScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("1_InGameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WindowTestScene");
         Time.timeScale = 1.0f;
     }
 

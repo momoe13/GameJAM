@@ -10,7 +10,9 @@ public class Window : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.W))
         {
-            Screen.SetResolution(1768, 992, false);
+            //Screen.SetResolution(1768, 992, false);
+            Screen.SetResolution(640, 480, false);
+            Debug.Log("aaaa");
         }
     }
 }

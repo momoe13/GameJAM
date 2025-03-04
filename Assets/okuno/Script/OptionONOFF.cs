@@ -15,7 +15,7 @@ public class OptionONOFF : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        optionUi.SetActive(false);
+        //optionUi.SetActive(false);
     }
 
     private void Update()

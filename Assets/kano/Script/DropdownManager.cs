@@ -15,23 +15,18 @@ public class DropdownManager : MonoBehaviour
         {
             case 0:
                 Screen.SetResolution(640, 480, false);
-                Debug.Log("set0");
                 break;
             case 1:
                 Screen.SetResolution(800, 600, false);
-                Debug.Log("set1");
                 break;
             case 2:
                 Screen.SetResolution(1024,768, false);
-                Debug.Log("set2");
                 break;
             case 3:
                 Screen.SetResolution(1280,960, false);
-                Debug.Log("set3");
                 break;
             case 4:
                 Screen.SetResolution(1920, 1080, false);
-                Debug.Log("set4");
                 break;
         }
             

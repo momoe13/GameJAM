@@ -4,7 +4,7 @@ public class Window : MonoBehaviour
 {
     private void Start()
     {
-        Screen.SetResolution(1920, 1080, false);
+        //Screen.SetResolution(1920, 1080, false);
     }
     private void Update()
     {

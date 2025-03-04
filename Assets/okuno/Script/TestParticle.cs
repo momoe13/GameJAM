@@ -37,7 +37,7 @@ public class TestParticle : MonoBehaviour
         {
             state = State.TITLE;
         }
-        else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "WindowTestScene")
+        else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "1_InGameScene")
         {
             state = State.GAMESCENE;
         }

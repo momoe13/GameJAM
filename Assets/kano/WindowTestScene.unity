@@ -2984,7 +2984,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crane: {fileID: 638375257}
   TargetItem: {fileID: 2032191162}
-  audioManager: {fileID: 372965158}
   itemGetParticle: {fileID: 2456698463892510480, guid: 52178d22e43296e4d991bbb561d0e7d7, type: 3}
   generatingManager: {fileID: 1999578893}
   turnManager: {fileID: 1717506638}
@@ -3713,7 +3712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45c6a4fc7c02ec47a66b29b05a8ee68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeManager: {fileID: 0}
   turnObject: {fileID: 943447616}
   turnCount: 3
 --- !u!4 &1717506640
@@ -3844,7 +3842,6 @@ MonoBehaviour:
   UFOanim: {fileID: 944038651}
   PushAnim: {fileID: 56705707}
   IsHit: 0
-  audioManager: {fileID: 372965158}
   ButtonImgChange: {fileID: 452247717}
 --- !u!4 &1809771953 stripped
 Transform:

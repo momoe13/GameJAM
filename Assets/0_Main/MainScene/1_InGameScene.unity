@@ -1596,6 +1596,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451532366776748482, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 913867298232821940, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 913867298232821940, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 913867298232821940, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2861257489556312133, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.76
@@ -2133,6 +2149,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &882944251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9021059148348987234, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+  m_PrefabInstance: {fileID: 638375256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bc875f642fe5943a562f35ccfbbd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &943447616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8790356385479686845, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
@@ -3555,6 +3582,7 @@ MonoBehaviour:
   - {x: 0, y: 1, z: 0}
   - {x: -1, y: 0, z: 0}
   magneticForceVariable: {fileID: 751045051}
+  gauge: {fileID: 882944251}
   turnManager: {fileID: 1717506639}
   UFOanim: {fileID: 944038651}
   PushAnim: {fileID: 56705707}

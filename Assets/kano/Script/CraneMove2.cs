@@ -7,6 +7,7 @@ public class CraneMove2 : MonoBehaviour
     Vector3[] armSpeed = new Vector3[(int)State.ENUM_END];
 
     [SerializeField] private MagneticForceVariable magneticForceVariable;
+    [SerializeField] private Gauge gauge;
 
     [SerializeField]
     TurnManager turnManager;
@@ -92,6 +93,7 @@ public class CraneMove2 : MonoBehaviour
                 magneticForceVariable.ResetPushCount();
                 magneticForceVariable.Reflection();
                 turnManager.TurnCountDown();
+                gauge.GaugeReset();
                 state = State.PUSH;
                 break;
 

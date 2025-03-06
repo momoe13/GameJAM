@@ -93,7 +93,6 @@ public class CraneMove2 : MonoBehaviour
                 magneticForceVariable.ResetPushCount();
                 magneticForceVariable.Reflection();
                 turnManager.TurnCountDown();
-                gauge.GaugeReset();
                 state = State.PUSH;
                 break;
 
@@ -193,6 +192,7 @@ public class CraneMove2 : MonoBehaviour
     }
     void ArmCommand7()
     {
+        gauge.GaugeReset();
         magneticForceVariable.MagneticOff();
         wait -= Time.deltaTime;
         if (0 > wait)

@@ -5165,7 +5165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerErea: {fileID: 8925904926158821318}
-  craneLevelUpValue: 79ffffff6fffffff60ffffff56ffffff
+  craneLevelUpValue:
+  - -125
+  - -130
+  - -135
+  - -140
   gaugeAry:
   - {fileID: 4910112932476674803}
   - {fileID: 7965445748505789389}

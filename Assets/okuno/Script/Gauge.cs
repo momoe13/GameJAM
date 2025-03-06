@@ -14,7 +14,8 @@ public class Gauge : MonoBehaviour
     }
     private State state;
     [SerializeField] private GameObject powerErea;
-    [SerializeField] private int[] craneLevelUpValue;
+    [Header("ゲージが上がる値")]
+    [SerializeField] private float[] craneLevelUpValue;
     [SerializeField] private GameObject[] gaugeAry;
     [SerializeField] private GameObject gaugeParticleParent;
     [Header("ゲージパーティクルの座標")]

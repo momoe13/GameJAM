@@ -13,10 +13,14 @@ public class CraneMove2 : MonoBehaviour
 
     [SerializeField] GameObject UFOanim;
     [SerializeField] GameObject PushAnim;
+    [SerializeField] GameObject BrokenPushAnim;
 
     [SerializeField]
     bool IsHit = false;
 
+    [SerializeField]
+    int animChangeLine;
+    int pushCount = 0;
     [SerializeField]
     ButtonImageChangeManager ButtonImgChange;
 
@@ -101,7 +105,7 @@ public class CraneMove2 : MonoBehaviour
         }
     }
 
-
+    //長押しで横移動のターン
     void ArmCommand1()
     {
         ButtonImgChange.SpriteChange(0);
@@ -121,6 +125,7 @@ public class CraneMove2 : MonoBehaviour
         }
     }
 
+    //連打ターン
     void ArmCommand2()
     {
         wait -= Time.deltaTime;
@@ -131,11 +136,18 @@ public class CraneMove2 : MonoBehaviour
             {
                 //磁力を増やす命令
                 magneticForceVariable.GetKey();
+                pushCount++;
+                if (pushCount > animChangeLine) 
+                { BrokenPushAnim.SetActive(true);
+                    pushCount = 0;
+                }
             }
         }
         else if (transform.position.y <= 30 || wait <= 0)
         {
             PushAnim.SetActive(false);
+            BrokenPushAnim.SetActive(false) ;
+
             IsHit = false;
             wait = 5.0f;
             // 降りる効果音再生

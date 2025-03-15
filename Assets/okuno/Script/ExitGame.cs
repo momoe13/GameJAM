@@ -4,6 +4,7 @@ public class ExitGame : MonoBehaviour
 {
     public void ExitGameAction()
     {
+        AudioManager.Instance.SelectSEPlay();
 #if UNITY_EDITOR
         // Unityエディタ上ではプレイモードを終了
         UnityEditor.EditorApplication.isPlaying = false;

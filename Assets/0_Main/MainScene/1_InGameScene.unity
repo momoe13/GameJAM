@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &56705708
 Animator:
   serializedVersion: 5
@@ -912,7 +912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &398382946
 Transform:
   m_ObjectHideFlags: 0
@@ -3664,9 +3664,9 @@ MonoBehaviour:
   turnManager: {fileID: 1717506639}
   UFOanim: {fileID: 944038651}
   PushAnim: {fileID: 56705707}
-  BrokenPushAnim: {fileID: 0}
+  BrokenPushAnim: {fileID: 398382945}
   IsHit: 0
-  animChangeLine: 0
+  animChangeLine: 10
   ButtonImgChange: {fileID: 452247717}
 --- !u!4 &1809771953 stripped
 Transform:

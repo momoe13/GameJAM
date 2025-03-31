@@ -17,12 +17,6 @@ public class Gauge : MonoBehaviour
     [Header("ゲージが上がる値")]
     [SerializeField] private float[] craneLevelUpValue;
     [SerializeField] private GameObject[] gaugeAry;
-    [SerializeField] private GameObject gaugeParticleParent;
-    [Header("ゲージパーティクルの座標")]
-    [SerializeField] private Vector3[] particlePosition;
-    [Header("-------------------------------------")]
-    [SerializeField] private ParticleSystem gaugeParticleLeft;
-    [SerializeField] private ParticleSystem gaugeParticleRight;
     private int idx = 0;
 
     private void Start()
@@ -46,30 +40,24 @@ public class Gauge : MonoBehaviour
             {
                 case State.ZERO:
                     if(powerErea.GetComponent<PointEffector2D>().forceMagnitude > craneLevelUpValue[(int)State.ZERO]) { break; }
-                    gaugeParticleLeft.Play();
-                    gaugeParticleRight.Play();
-                    gaugeParticleParent.transform.localPosition = particlePosition[idx];
                     gaugeAry[idx].gameObject.SetActive(true);
                     idx++;
                     state = State.ONE;
                     break;
                 case State.ONE:
                     if (powerErea.GetComponent<PointEffector2D>().forceMagnitude > craneLevelUpValue[(int)State.ONE]) { break; }
-                    gaugeParticleParent.transform.localPosition = particlePosition[idx];
                     gaugeAry[idx].gameObject.SetActive(true);
                     idx++;
                     state = State.TWO;
                     break;
                 case State.TWO:
                     if (powerErea.GetComponent<PointEffector2D>().forceMagnitude > craneLevelUpValue[(int)State.TWO]) { break; }
-                    gaugeParticleParent.transform.localPosition = particlePosition[idx];
                     gaugeAry[idx].gameObject.SetActive(true);
                     idx++;
                     state = State.THREE;
                     break;
                 case State.THREE:
                     if (powerErea.GetComponent<PointEffector2D>().forceMagnitude > craneLevelUpValue[(int)State.THREE]) { break; }
-                    gaugeParticleParent.transform.localPosition = particlePosition[idx];
                     gaugeAry[idx].gameObject.SetActive(true);
                     state = State.FOUR;
                     break;
@@ -85,9 +73,6 @@ public class Gauge : MonoBehaviour
             gaugeAry[idx].SetActive(false);
         }
         idx = 0;
-        gaugeParticleLeft.Stop();
-        gaugeParticleRight.Stop();
-        gaugeParticleParent.transform.localPosition = particlePosition[idx];
         state = State.ZERO;
     }
 }

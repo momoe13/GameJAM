@@ -32,12 +32,13 @@ public class CraneMove2 : MonoBehaviour
     CheckboxManager checkboxManager;
 
     //テスト用　完了後Vector２型に変更
-    [SerializeField]
-    GameObject StartPoint;
-    [SerializeField]
-    GameObject EndPoint;
+    //[SerializeField]
+    //GameObject StartPoint;
+    //[SerializeField]
+    //GameObject EndPoint;
 
-
+    Vector2 StartPos = new Vector2(-6.3f, 3f);
+    Vector2 EndPos = new Vector2(6.68f, 3f);
     private enum State
     {
         PUSH,       //プレイヤーが押すターン
@@ -66,7 +67,7 @@ public class CraneMove2 : MonoBehaviour
     {
         if (!IsPlaying.isPlay) {
             //チェックボックスが更新されたか確認
-            SetPos();
+            //SetPos();
             return; }
         /*
          //fixedにする場合
@@ -129,7 +130,7 @@ public class CraneMove2 : MonoBehaviour
             ButtonImgChange.SpriteChange(1);
             transform.position += armSpeed[(int)State.PUSH] * Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || EndPoint.transform.position.x <= this.transform.position.x)
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || EndPos.x <= this.transform.position.x)
         {
             ButtonImgChange.SpriteChange(2);
             wait = 2.0f;
@@ -199,7 +200,7 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand5()
     {
         transform.position += armSpeed[(int)State.UP] * Time.deltaTime;
-        if (transform.position.y >= StartPoint.transform.position.y)
+        if (transform.position.y >= StartPos.y)
         {
             // 上昇SE停止
             AudioManager.Instance.StopCraneSEPlay();
@@ -211,7 +212,7 @@ public class CraneMove2 : MonoBehaviour
     void ArmCommand6()
     {
         transform.position += armSpeed[(int)State.LEFT] * Time.deltaTime;
-        if (transform.position.x <= StartPoint.transform.position.x)
+        if (transform.position.x <= StartPos.x)
         {
             wait = 2;
             UFOanim.SetActive(false);
@@ -252,19 +253,21 @@ public class CraneMove2 : MonoBehaviour
     }
 
 
-    //開始位置再設定
-    private void SetPos()
-    {
-        //シーン内のチェックボックススクリプトを持つオブジェクトを探す
-        checkboxManager = FindObjectOfType<CheckboxManager>();
-        if (checkboxManager.GetCheck())
-        {
-            //テスト用。完了したらVector２に変更する
-            StartPoint.transform.position = new Vector2(-3.5f, 2.55f);
-            EndPoint.transform.position = new Vector2(8.63f, 2.55f);
-        }
-        else
-        {
-        }
-    }
+    ////開始位置再設定
+    //private void SetPos()
+    //{
+    //    //シーン内のチェックボックススクリプトを持つオブジェクトを探す
+    //    checkboxManager = FindObjectOfType<CheckboxManager>();
+    //    if (checkboxManager.GetCheck())
+    //    {
+    //        //テスト用。完了したらVector２に変更する
+    //        StartPoint.transform.position = new Vector2(-3.5f, 2.55f);
+    //        EndPoint.transform.position = new Vector2(8.63f, 2.55f);
+    //    }
+    //    else
+    //    {
+    //        StartPoint.transform.position = new Vector2(-6.3f, 3f);
+    //        EndPoint.transform.position = new   Vector2(6.68f,3f);
+    //    }
+    //}
 }

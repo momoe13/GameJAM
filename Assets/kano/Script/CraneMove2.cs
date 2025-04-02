@@ -31,14 +31,9 @@ public class CraneMove2 : MonoBehaviour
     //ハイスコアタブの表示/非表示
     CheckboxManager checkboxManager;
 
-    //テスト用　完了後Vector２型に変更
-    //[SerializeField]
-    //GameObject StartPoint;
-    //[SerializeField]
-    //GameObject EndPoint;
 
-    Vector2 StartPos = new Vector2(-6.3f, 3f);
-    Vector2 EndPos = new Vector2(6.68f, 3f);
+    Vector2 StartPos = new(-6.3f, 3f);
+    Vector2 EndPos = new(6.68f, 3f);
     private enum State
     {
         PUSH,       //プレイヤーが押すターン
@@ -252,22 +247,4 @@ public class CraneMove2 : MonoBehaviour
         AudioManager.Instance.StopCraneSEPlay();
     }
 
-
-    ////開始位置再設定
-    //private void SetPos()
-    //{
-    //    //シーン内のチェックボックススクリプトを持つオブジェクトを探す
-    //    checkboxManager = FindObjectOfType<CheckboxManager>();
-    //    if (checkboxManager.GetCheck())
-    //    {
-    //        //テスト用。完了したらVector２に変更する
-    //        StartPoint.transform.position = new Vector2(-3.5f, 2.55f);
-    //        EndPoint.transform.position = new Vector2(8.63f, 2.55f);
-    //    }
-    //    else
-    //    {
-    //        StartPoint.transform.position = new Vector2(-6.3f, 3f);
-    //        EndPoint.transform.position = new   Vector2(6.68f,3f);
-    //    }
-    //}
 }

@@ -7,25 +7,12 @@ public class CheckboxManager : MonoBehaviour
     Toggle tabToggle;
 
     [SerializeField]
-    Camera mainCamera;
+    CameraManager cameraManager;
+
     //Toggleの値が変更されたときに呼び出される
     public void ChackToggle()
     {
-        //左側にタブ追加
-        if (tabToggle.isOn)
-        {
-            mainCamera.orthographicSize = 7;
-        }
-        //スコアタブ消す
-        else 
-        {
-            mainCamera.orthographicSize = 5;
-        }
-
+        cameraManager.GetCheck(tabToggle.isOn);
     }
 
-    public bool GetCheck()
-    {
-        return tabToggle.isOn;
-    }
 }

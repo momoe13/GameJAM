@@ -5,6 +5,8 @@ public class DropdownManager : MonoBehaviour
 { 
     private TMP_Dropdown dropdown;
 
+    [SerializeField]
+    CameraManager cameraManager;
     private void Start()
     {
         dropdown = GetComponent<TMP_Dropdown>();
@@ -28,9 +30,14 @@ public class DropdownManager : MonoBehaviour
             case 4:
                 Screen.SetResolution(1920, 1080, false);
                 break;
+            case 5:
+                Screen.SetResolution(3840, 2160, false);
+                break;
+
         }
-            
+        cameraManager.GetValue(dropdown.value);
 
     }
+
 
 }

@@ -20,15 +20,19 @@ public class OptionONOFF : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            IsPlaying.isPlay = false;
-            optionUi.SetActive(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            IsPlaying.isPlay = true;
-            optionUi.SetActive(false);
+            AudioManager.Instance.SelectSEPlay();
+            if (IsPlaying.isPlay)
+            {
+                IsPlaying.isPlay = false;
+                optionUi.SetActive(true);
+            }
+            else
+            {
+                IsPlaying.isPlay = true;
+                optionUi.SetActive(false);
+            }
         }
     }
 }

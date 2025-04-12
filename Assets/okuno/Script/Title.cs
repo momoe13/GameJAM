@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Title : MonoBehaviour
@@ -21,19 +20,20 @@ public class Title : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                if (spaceCount == 0)
+                if (!HelpUICount.isFirstHelpShown)
                 {
+                    HelpUICount.isFirstHelpShown = true;
                     AudioManager.Instance.SelectSEPlay();
                     spaceCount++;
                     spaceUi.SetActive(false);
                     helpUi.SetActive(true);
                 }
-                else if (spaceCount == 1)
+                else
                 {
+                    if(spaceCount > 1) { return; }
                     AudioManager.Instance.SelectSEPlay();
                     spaceCount++;
                     TestParticle.Instance.fadeCall();
-                    spaceCount++;
                 }
             }
         }

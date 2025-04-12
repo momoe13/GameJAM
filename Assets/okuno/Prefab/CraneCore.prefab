@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1591527870815136499}
   - component: {fileID: 4957165047941323138}
   - component: {fileID: 7513914265988882623}
+  - component: {fileID: 567553972051269492}
   m_Layer: 5
   m_Name: GaugeParent
   m_TagString: Untagged
@@ -102,6 +103,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &567553972051269492
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451532366776748482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b974e591cd631554ebd00ebf4955585d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1448247762395425634
 GameObject:
   m_ObjectHideFlags: 0

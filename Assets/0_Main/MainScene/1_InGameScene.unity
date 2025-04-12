@@ -1672,6 +1672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CraneCore
       objectReference: {fileID: 0}
+    - target: {fileID: 9021059148348987234, guid: 5e0aa31228a35ab4c86ea12e7ab3997d, type: 3}
+      propertyPath: craneLevelUpValue.Array.data[4]
+      value: -150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

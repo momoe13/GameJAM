@@ -11,9 +11,14 @@ public class ScoreManager : MonoBehaviour
     public GameObject turnRecoveryUpScoreObject = null;
     //public GameObject prizeScoreObject = null;
 
+    public GameObject highScoreObject = null;
+
+    public int highScore = 0;
+
     private void Start()
     {
-        //初期化
+        //初期化、ハイスコア引継ぎ
+        highScore = PlayerPrefs.GetInt("HIGHSCORE", 0);
     }
     private void Update()
     {
@@ -25,6 +30,8 @@ public class ScoreManager : MonoBehaviour
         Text turnRecoveryUpScoreText = turnRecoveryUpScoreObject.GetComponent<Text>();
         //Text prizeScoreText = prizeScoreObject.GetComponent<Text>();
 
+        Text highScoreText = highScoreObject.GetComponent<Text>();
+
         //テキストの表示入替
         scoreText.text = ScoreKeep.score.ToString() + "てん";
         sterScoreText.text = "×:" + ScoreKeep.sterScore.ToString();
@@ -32,5 +39,16 @@ public class ScoreManager : MonoBehaviour
         ratePowerUpScoreText.text = "×" + ScoreKeep.ratePowerUpScore.ToString();
         widthPowerUpScoreText.text = "×" + ScoreKeep.widthPowerUpScore.ToString();
         turnRecoveryUpScoreText.text = "×" + ScoreKeep.turnRecoveryUpScore.ToString();
+
+        highScoreText.text = "ハイスコア:" + highScore.ToString();
+
+        //ハイスコアの処理
+        if (ScoreKeep.score >= highScore)
+        {
+            highScore = ScoreKeep.score;
+
+            PlayerPrefs.SetInt("HIGHSCORE",highScore);
+            PlayerPrefs.Save();
+        }
     }
 }

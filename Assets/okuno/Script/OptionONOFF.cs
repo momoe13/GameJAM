@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OptionONOFF : MonoBehaviour
 {
-    public static OptionONOFF Instance {  get; private set; }
+    public static OptionONOFF Instance { get; private set; }
     [SerializeField] private GameObject optionUi;
 
     private void Start()

@@ -148,7 +148,9 @@ public class CraneMove2 : MonoBehaviour
                 magneticForceVariable.GetKey();
                 pushCount++;
                 if (pushCount > animChangeLine) 
-                { BrokenPushAnim.SetActive(true);
+                {
+                    PushAnim.SetActive(false);
+                    BrokenPushAnim.SetActive(true);
                     pushCount = 0;
                 }
             }

@@ -18,7 +18,7 @@ public class Title : MonoBehaviour
     {
         if (IsPlaying.isPlay)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !UIHoverTracker.IsPointerOverButton)
             {
                 if (!HelpUICount.isFirstHelpShown)
                 {

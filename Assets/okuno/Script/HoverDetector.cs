@@ -4,27 +4,6 @@ using UnityEngine.UI;
 
 public class HoverDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    //private void Start()
-    //{
-    //    GameObject bm = GameObject.Find("ButtonManager");
-    //    if (bm != null)
-    //    {
-    //        ButtonAction buttonAction = bm.GetComponent<ButtonAction>();
-    //        if (buttonAction != null)
-    //        {
-    //            if (GetComponent<Button>().onClick.GetPersistentEventCount() == 0)
-    //            {
-    //                GetComponent<Button>().onClick.AddListener(buttonAction.ToggleOptionButton);
-    //                Debug.Log("’Ê‚Á‚½");
-    //            }
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("ButtonManager‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
-    //    }
-    //    Debug.Log("‰½‚à‚È‚µ");
-    //}
     private bool isbutton = false;
 
     private void Update()

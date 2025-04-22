@@ -1,6 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CraneMove2 : MonoBehaviour
 {
@@ -121,12 +121,16 @@ public class CraneMove2 : MonoBehaviour
         ButtonImgChange.SpriteChange(0);
 
         //if(isKey){
-        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        //EventSystem.current.IsPointerOverGameObject()はマウスカーソルがUIに重なっているかを判定する（重なっている場合にtrueが返ってくる)
+        //UI系にカーソルが重なってない場合にのみクレーンが動いてほしい場合↓
+        //                                       if(!EventSystem.current.IsPointerOverGameObject())
+        //今回はボタンのみに制限するため、HoverDetectorスクリプトでボタンにカーソルが重なっているか監視し、UIHoverTrackerの変数を参照
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !UIHoverTracker.IsPointerOverButton)
         {
             ButtonImgChange.SpriteChange(1);
             transform.position += armSpeed[(int)State.PUSH] * Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || EndPos.x <= this.transform.position.x)
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0) || EndPos.x <= this.transform.position.x) && !UIHoverTracker.IsPointerOverButton)
         {
             ButtonImgChange.SpriteChange(2);
             wait = 2.0f;
@@ -142,7 +146,7 @@ public class CraneMove2 : MonoBehaviour
 
         if (0 < wait)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !UIHoverTracker.IsPointerOverButton)
             {
                 //磁力を増やす命令
                 magneticForceVariable.GetKey();
